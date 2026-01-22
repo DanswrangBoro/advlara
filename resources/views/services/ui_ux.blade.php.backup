@@ -1,0 +1,1120 @@
+@extends('layouts.base')
+
+@section('title', 'UI/UX Design Services - User-Centered Digital Experiences')
+@section('description', 'Transform user experiences with intuitive UI/UX design. We create digital products that users love and businesses thrive on.')
+@section('keywords', 'UI design, UX design, user experience, user interface, digital product design, web design, app design')
+
+@section('content')
+    <style>
+        /* Base Styles */
+        .ux-wrapper {
+            width: 100%;
+            overflow-x: hidden;
+        }
+        
+        :root {
+            --ux-primary: #7c3aed;
+            --ux-secondary: #06d6a0;
+            --ux-accent: #ff6b6b;
+            --ux-dark: #1e1b4b;
+            --ux-light: #f0f4ff;
+            --ux-surface: #ffffff;
+        }
+        
+        /* Hero Section - Digital & Interactive Focus */
+        .ux-hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4338ca 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        /* Interactive Grid Background */
+        .ux-interactive-grid {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(124, 58, 237, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(124, 58, 237, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+            animation: gridPulse 8s ease-in-out infinite;
+        }
+        
+        @keyframes gridPulse {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.02); }
+        }
+        
+        /* Floating UI Elements */
+        .ux-ui-element {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            animation: floatUI 20s infinite ease-in-out;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ux-ui-1 {
+            width: 120px;
+            height: 80px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .ux-ui-2 {
+            width: 80px;
+            height: 120px;
+            top: 60%;
+            right: 15%;
+            animation-delay: 5s;
+            border-radius: 20px;
+        }
+        
+        .ux-ui-3 {
+            width: 100px;
+            height: 100px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 10s;
+            border-radius: 50%;
+        }
+        
+        .ux-ui-4 {
+            width: 140px;
+            height: 60px;
+            top: 40%;
+            right: 20%;
+            animation-delay: 15s;
+        }
+        
+        @keyframes floatUI {
+            0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+            25% { transform: translate(30px, -40px) rotate(5deg) scale(1.05); }
+            50% { transform: translate(-20px, 30px) rotate(-3deg) scale(0.95); }
+            75% { transform: translate(40px, 20px) rotate(2deg) scale(1.02); }
+        }
+        
+        /* Digital Flow Lines */
+        .ux-flow-lines {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .ux-flow-line {
+            position: absolute;
+            background: linear-gradient(90deg, transparent, rgba(6, 214, 160, 0.3), transparent);
+            height: 2px;
+            animation: flowLine 6s linear infinite;
+        }
+        
+        .ux-flow-1 {
+            top: 30%;
+            width: 200px;
+            animation-delay: 0s;
+        }
+        
+        .ux-flow-2 {
+            top: 70%;
+            width: 300px;
+            animation-delay: 2s;
+        }
+        
+        .ux-flow-3 {
+            top: 50%;
+            width: 250px;
+            animation-delay: 4s;
+        }
+        
+        @keyframes flowLine {
+            0% { transform: translateX(-100%); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateX(100vw); opacity: 0; }
+        }
+        
+        /* Hero Content */
+        .ux-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            padding: 20px;
+            max-width: 900px;
+        }
+        
+        .ux-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            background: rgba(6, 214, 160, 0.15);
+            border: 2px solid rgba(6, 214, 160, 0.4);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: fadeInUp 1s forwards 0.2s;
+            backdrop-filter: blur(10px);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .ux-hero-content h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            letter-spacing: -2px;
+            line-height: 1.1;
+            opacity: 0;
+            animation: fadeInUp 1s forwards 0.4s;
+        }
+        
+        .ux-hero-content h1 span {
+            background: linear-gradient(135deg, #06d6a0, #7c3aed, #ff6b6b);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 4s ease-in-out infinite;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .ux-hero-content p {
+            font-size: 1.4rem;
+            opacity: 0;
+            animation: fadeInUp 1s forwards 0.6s;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+        
+        /* Interactive CTA Button */
+        .ux-hero-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 42px;
+            background: linear-gradient(135deg, #7c3aed, #6366f1);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeInUp 1s forwards 0.8s;
+            box-shadow: 0 15px 40px rgba(124, 58, 237, 0.4);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .ux-hero-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.7s;
+        }
+        
+        .ux-hero-btn:hover::before {
+            left: 100%;
+        }
+        
+        .ux-hero-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(124, 58, 237, 0.6);
+            background: linear-gradient(135deg, #6366f1, #7c3aed);
+        }
+        
+        .ux-hero-btn svg {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s;
+        }
+        
+        .ux-hero-btn:hover svg {
+            transform: translateX(5px);
+        }
+        
+        /* Process Flow Indicator */
+        .ux-process-flow {
+            position: absolute;
+            bottom: 40px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            opacity: 0;
+            animation: fadeIn 1s forwards 1s;
+        }
+        
+        .ux-process-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .ux-step-dot {
+            width: 12px;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            position: relative;
+        }
+        
+        .ux-step-dot::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            width: 40px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-50%);
+        }
+        
+        .ux-process-step:last-child .ux-step-dot::after {
+            display: none;
+        }
+        
+        .ux-process-step.active .ux-step-dot {
+            background: #06d6a0;
+            box-shadow: 0 0 20px rgba(6, 214, 160, 0.5);
+        }
+        
+        /* Main Content */
+        .ux-main {
+            position: relative;
+            background: var(--ux-light);
+        }
+        
+        .ux-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 120px 40px;
+        }
+        
+        /* Section Header */
+        .ux-section-header {
+            text-align: center;
+            margin-bottom: 90px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .ux-section-header.visible {
+            animation: fadeInUp 0.8s forwards;
+        }
+        
+        .ux-section-subtitle {
+            display: inline-block;
+            color: #7c3aed;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            padding: 8px 20px;
+            background: rgba(124, 58, 237, 0.1);
+            border-radius: 20px;
+        }
+        
+        .ux-section-title {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: var(--ux-dark);
+            letter-spacing: -1.5px;
+            line-height: 1.2;
+        }
+        
+        /* Services Cards - Modern Glass Morphism */
+        .ux-services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 120px;
+        }
+        
+        .ux-service-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 24px;
+            padding: 50px 40px;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(50px) scale(0.95);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+        }
+        
+        .ux-service-card.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        
+        .ux-service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #7c3aed, #06d6a0);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .ux-service-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .ux-service-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(124, 58, 237, 0.15);
+            border-color: rgba(124, 58, 237, 0.2);
+        }
+        
+        .ux-service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(6, 214, 160, 0.05));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 28px;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            border: 2px solid rgba(124, 58, 237, 0.1);
+        }
+        
+        .ux-service-card:hover .ux-service-icon {
+            background: linear-gradient(135deg, #7c3aed, #6366f1);
+            transform: rotate(-8deg) scale(1.1);
+            border-color: transparent;
+        }
+        
+        .ux-service-icon svg {
+            width: 38px;
+            height: 38px;
+            transition: all 0.5s;
+        }
+        
+        .ux-service-card:hover .ux-service-icon svg {
+            transform: scale(1.1);
+        }
+        
+        .ux-service-card:hover .ux-service-icon svg path,
+        .ux-service-card:hover .ux-service-icon svg circle,
+        .ux-service-card:hover .ux-service-icon svg line {
+            stroke: white;
+        }
+        
+        .ux-service-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--ux-dark);
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+        
+        .ux-service-desc {
+            font-size: 0.98rem;
+            color: #6b7280;
+            line-height: 1.75;
+            margin-bottom: 25px;
+        }
+        
+        .ux-service-features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .ux-service-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+        
+        .ux-service-feature::before {
+            content: '✓';
+            color: #06d6a0;
+            font-weight: bold;
+        }
+        
+        /* Process Timeline */
+        .ux-process-section {
+            margin-bottom: 120px;
+        }
+        
+        .ux-process-timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 0;
+            position: relative;
+        }
+        
+        .ux-process-timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background: linear-gradient(to bottom, transparent, #7c3aed, transparent);
+            transform: translateX(-50%);
+        }
+        
+        .ux-process-item {
+            padding: 40px;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .ux-process-item.visible {
+            animation: fadeInUp 0.8s forwards;
+        }
+        
+        .ux-process-item:nth-child(odd) {
+            text-align: right;
+            padding-right: 60px;
+        }
+        
+        .ux-process-item:nth-child(even) {
+            text-align: left;
+            padding-left: 60px;
+        }
+        
+        .ux-process-number {
+            position: absolute;
+            top: 40px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #7c3aed, #6366f1);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.2rem;
+            box-shadow: 0 8px 25px rgba(124, 58, 237, 0.3);
+        }
+        
+        .ux-process-item:nth-child(odd) .ux-process-number {
+            right: -25px;
+        }
+        
+        .ux-process-item:nth-child(even) .ux-process-number {
+            left: -25px;
+        }
+        
+        .ux-process-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--ux-dark);
+            margin-bottom: 12px;
+        }
+        
+        .ux-process-desc {
+            color: #6b7280;
+            line-height: 1.7;
+        }
+        
+        /* Stats Section */
+        .ux-stats-section {
+            background: linear-gradient(135deg, #1e1b4b, #312e81);
+            border-radius: 40px;
+            padding: 80px 60px;
+            margin-bottom: 120px;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        
+        .ux-stats-section.visible {
+            animation: fadeInUp 0.8s forwards;
+        }
+        
+        .ux-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .ux-stat-item {
+            text-align: center;
+            color: white;
+        }
+        
+        .ux-stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #06d6a0, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .ux-stat-label {
+            font-size: 1rem;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* CTA Section */
+        .ux-cta-section {
+            background: linear-gradient(135deg, #06d6a0, #00b894);
+            border-radius: 40px;
+            padding: 80px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 120px;
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        
+        .ux-cta-section.visible {
+            animation: scaleIn 0.8s forwards;
+        }
+        
+        .ux-cta-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0.1;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(255,255,255,0.8) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.6) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255,255,255,0.4) 0%, transparent 50%);
+        }
+        
+        .ux-cta-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .ux-cta-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+        
+        .ux-cta-text {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+        
+        .ux-cta-btn {
+            display: inline-block;
+            padding: 18px 45px;
+            background: white;
+            color: #06d6a0;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.05rem;
+            font-weight: 800;
+            text-decoration: none;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ux-cta-btn:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Final CTA */
+        .ux-final-cta {
+            background: var(--ux-surface);
+            border: 2px dashed rgba(124, 58, 237, 0.3);
+            border-radius: 40px;
+            padding: 100px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        
+        .ux-final-cta.visible {
+            animation: fadeInUp 0.8s forwards;
+        }
+        
+        .ux-final-cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .ux-final-cta h2 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -1.5px;
+            line-height: 1.1;
+            color: var(--ux-dark);
+        }
+        
+        .ux-final-cta p {
+            font-size: 1.25rem;
+            margin-bottom: 45px;
+            color: #6b7280;
+        }
+        
+        .ux-final-btn {
+            display: inline-block;
+            padding: 18px 45px;
+            background: linear-gradient(135deg, #7c3aed, #6366f1);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.05rem;
+            font-weight: 800;
+            text-decoration: none;
+            box-shadow: 0 15px 40px rgba(124, 58, 237, 0.4);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ux-final-btn:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(124, 58, 237, 0.6);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes scaleIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .ux-process-timeline::before {
+                left: 30px;
+            }
+            
+            .ux-process-item:nth-child(odd),
+            .ux-process-item:nth-child(even) {
+                text-align: left;
+                padding-left: 80px;
+                padding-right: 40px;
+            }
+            
+            .ux-process-item:nth-child(odd) .ux-process-number,
+            .ux-process-item:nth-child(even) .ux-process-number {
+                left: -25px;
+                right: auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .ux-hero-content h1 { font-size: 3.2rem; }
+            .ux-section-title { font-size: 2.2rem; }
+            .ux-container { padding: 80px 20px; }
+            .ux-services-grid { grid-template-columns: 1fr; }
+            .ux-process-flow { gap: 20px; }
+            .ux-step-dot::after { width: 20px; }
+            .ux-cta-title { font-size: 2.2rem; }
+            .ux-final-cta h2 { font-size: 2.5rem; }
+            .ux-service-card { padding: 30px; }
+            .ux-stats-section { padding: 60px 30px; }
+            .ux-stat-number { font-size: 2.5rem; }
+        }
+        
+        @media (max-width: 480px) {
+            .ux-hero-content h1 { font-size: 2.5rem; }
+            .ux-section-title { font-size: 1.8rem; }
+            .ux-cta-title { font-size: 1.8rem; }
+            .ux-final-cta h2 { font-size: 2rem; }
+            .ux-process-item { padding: 30px 30px 30px 60px; }
+            .ux-hero-btn, .ux-cta-btn, .ux-final-btn { 
+                padding: 16px 32px; 
+                font-size: 0.95rem;
+                width: 100%;
+                max-width: 280px;
+            }
+        }
+    </style>
+
+    <div class="ux-wrapper">
+        <!-- Hero Section -->
+        <section class="ux-hero">
+            <!-- Interactive Grid Background -->
+            <div class="ux-interactive-grid"></div>
+            
+            <!-- Floating UI Elements -->
+            <div class="ux-ui-element ux-ui-1"></div>
+            <div class="ux-ui-element ux-ui-2"></div>
+            <div class="ux-ui-element ux-ui-3"></div>
+            <div class="ux-ui-element ux-ui-4"></div>
+            
+            <!-- Digital Flow Lines -->
+            <div class="ux-flow-lines">
+                <div class="ux-flow-line ux-flow-1"></div>
+                <div class="ux-flow-line ux-flow-2"></div>
+                <div class="ux-flow-line ux-flow-3"></div>
+            </div>
+            
+            <!-- Hero Content -->
+            <div class="ux-hero-content">
+                <div class="ux-hero-badge">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    User-Centered Design Approach
+                </div>
+                <h1>UI/UX Design <span>That Connects</span></h1>
+                <p>Creating intuitive digital experiences that users love and businesses thrive on. We bridge the gap between user needs and business goals.</p>
+                <a href="#contact" class="ux-hero-btn">
+                    Start Your Project
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+            
+            <!-- Process Flow Indicator -->
+            <div class="ux-process-flow">
+                <div class="ux-process-step active">
+                    <div class="ux-step-dot"></div>
+                    <span>Research</span>
+                </div>
+                <div class="ux-process-step">
+                    <div class="ux-step-dot"></div>
+                    <span>Design</span>
+                </div>
+                <div class="ux-process-step">
+                    <div class="ux-step-dot"></div>
+                    <span>Test</span>
+                </div>
+                <div class="ux-process-step">
+                    <div class="ux-step-dot"></div>
+                    <span>Launch</span>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Main Content -->
+        <main class="ux-main">
+            <div class="ux-container">
+                <!-- Services Section -->
+                <div class="ux-section-header">
+                    <div class="ux-section-subtitle">Our Expertise</div>
+                    <h2 class="ux-section-title">UI/UX Design Services</h2>
+                </div>
+                
+                <div class="ux-services-grid">
+                    <!-- User Research -->
+                    <div class="ux-service-card">
+                        <div class="ux-service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div>
+                        <h3 class="ux-service-title">User Research & Analysis</h3>
+                        <p class="ux-service-desc">Deep dive into user behaviors, needs, and motivations through comprehensive research methodologies.</p>
+                        <ul class="ux-service-features">
+                            <li class="ux-service-feature">User interviews & surveys</li>
+                            <li class="ux-service-feature">Persona development</li>
+                            <li class="ux-service-feature">Journey mapping</li>
+                            <li class="ux-service-feature">Competitive analysis</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Interface Design -->
+                    <div class="ux-service-card">
+                        <div class="ux-service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                        </div>
+                        <h3 class="ux-service-title">Interface Design</h3>
+                        <p class="ux-service-desc">Create visually appealing and functional interfaces that enhance user engagement and satisfaction.</p>
+                        <ul class="ux-service-features">
+                            <li class="ux-service-feature">Visual design systems</li>
+                            <li class="ux-service-feature">Interactive prototypes</li>
+                            <li class="ux-service-feature">Responsive design</li>
+                            <li class="ux-service-feature">Design handoff</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Experience Strategy -->
+                    <div class="ux-service-card">
+                        <div class="ux-service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                                <polyline points="7.5 4.21 12 6.81 16.5 4.21"></polyline>
+                                <polyline points="7.5 19.79 7.5 14.6 3 12"></polyline>
+                                <polyline points="21 12 16.5 14.6 16.5 19.79"></polyline>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                            </svg>
+                        </div>
+                        <h3 class="ux-service-title">Experience Strategy</h3>
+                        <p class="ux-service-desc">Develop comprehensive UX strategies that align user needs with business objectives and technical capabilities.</p>
+                        <ul class="ux-service-features">
+                            <li class="ux-service-feature">UX roadmap planning</li>
+                            <li class="ux-service-feature">Information architecture</li>
+                            <li class="ux-service-feature">Content strategy</li>
+                            <li class="ux-service-feature">Usability testing</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Prototyping -->
+                    <div class="ux-service-card">
+                        <div class="ux-service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2">
+                                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="ux-service-title">Prototyping & Testing</h3>
+                        <p class="ux-service-desc">Build interactive prototypes and conduct rigorous testing to validate design decisions before development.</p>
+                        <ul class="ux-service-features">
+                            <li class="ux-service-feature">Interactive prototypes</li>
+                            <li class="ux-service-feature">Usability testing</li>
+                            <li class="ux-service-feature">A/B testing</li>
+                            <li class="ux-service-feature">User feedback sessions</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Process Section -->
+                <div class="ux-process-section">
+                    <div class="ux-section-header">
+                        <div class="ux-section-subtitle">Our Process</div>
+                        <h2 class="ux-section-title">Design Thinking Approach</h2>
+                    </div>
+                    
+                    <div class="ux-process-timeline">
+                        <div class="ux-process-item">
+                            <div class="ux-process-number">1</div>
+                            <h3 class="ux-process-title">Discover & Research</h3>
+                            <p class="ux-process-desc">We immerse ourselves in your business context, conduct user research, and analyze market trends to understand the problem space thoroughly.</p>
+                        </div>
+                        
+                        <div class="ux-process-item">
+                            <div class="ux-process-number">2</div>
+                            <h3 class="ux-process-title">Define & Strategize</h3>
+                            <p class="ux-process-desc">Synthesize research findings into actionable insights, define user personas, and create experience strategies that drive business value.</p>
+                        </div>
+                        
+                        <div class="ux-process-item">
+                            <div class="ux-process-number">3</div>
+                            <h3 class="ux-process-title">Design & Iterate</h3>
+                            <p class="ux-process-desc">Create wireframes, prototypes, and visual designs through an iterative process, constantly refining based on user feedback and testing.</p>
+                        </div>
+                        
+                        <div class="ux-process-item">
+                            <div class="ux-process-number">4</div>
+                            <h3 class="ux-process-title">Deliver & Implement</h3>
+                            <p class="ux-process-desc">Prepare comprehensive design systems, provide developer handoff, and ensure seamless implementation of the final user experience.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Stats Section -->
+                <div class="ux-stats-section">
+                    <div class="ux-stats-grid">
+                        <div class="ux-stat-item">
+                            <div class="ux-stat-number">87%</div>
+                            <div class="ux-stat-label">Increase in User Engagement</div>
+                        </div>
+                        <div class="ux-stat-item">
+                            <div class="ux-stat-number">42%</div>
+                            <div class="ux-stat-label">Reduction in Bounce Rate</div>
+                        </div>
+                        <div class="ux-stat-item">
+                            <div class="ux-stat-number">3.2x</div>
+                            <div class="ux-stat-label">Faster Task Completion</div>
+                        </div>
+                        <div class="ux-stat-item">
+                            <div class="ux-stat-number">94%</div>
+                            <div class="ux-stat-label">User Satisfaction Rate</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- CTA Section -->
+                <div class="ux-cta-section">
+                    <div class="ux-cta-pattern"></div>
+                    <div class="ux-cta-content">
+                        <h2 class="ux-cta-title">Ready to Transform Your User Experience?</h2>
+                        <p class="ux-cta-text">Let's collaborate to create digital products that not only look beautiful but also provide exceptional user experiences that drive results.</p>
+                        <a href="#contact" class="ux-cta-btn">Schedule a Consultation</a>
+                    </div>
+                </div>
+                
+                <!-- Final CTA -->
+                <div class="ux-final-cta">
+                    <div class="ux-final-cta-content">
+                        <h2>Start Your UX Journey Today</h2>
+                        <p>Join countless businesses that have transformed their digital presence through our user-centered design approach.</p>
+                        <a href="#contact" class="ux-final-btn">Get Started Now</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -80px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        // Initialize animations on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll(
+                '.ux-section-header, .ux-service-card, .ux-process-item, .ux-stats-section, .ux-cta-section, .ux-final-cta'
+            );
+            
+            animatedElements.forEach((el, index) => {
+                el.style.transitionDelay = `${index * 0.1}s`;
+                observer.observe(el);
+            });
+            
+            // Animate process steps on scroll
+            const processSteps = document.querySelectorAll('.ux-process-step');
+            const processObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            processSteps.forEach(step => step.classList.remove('active'));
+                            processSteps[index].classList.add('active');
+                        }, index * 300);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            document.querySelectorAll('.ux-process-item').forEach(item => {
+                processObserver.observe(item);
+            });
+            
+            // Interactive UI elements
+            const uiElements = document.querySelectorAll('.ux-ui-element');
+            uiElements.forEach(element => {
+                element.addEventListener('mouseenter', () => {
+                    element.style.transform = 'scale(1.2) rotate(5deg)';
+                    element.style.background = 'rgba(255, 255, 255, 0.2)';
+                });
+                
+                element.addEventListener('mouseleave', () => {
+                    element.style.transform = '';
+                    element.style.background = 'rgba(255, 255, 255, 0.1)';
+                });
+            });
+            
+            // Parallax effect for hero section
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const hero = document.querySelector('.ux-hero-content');
+                const uiElements = document.querySelectorAll('.ux-ui-element');
+                
+                if (hero && scrolled < window.innerHeight) {
+                    hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+                    hero.style.opacity = 1 - (scrolled / 800);
+                }
+                
+                uiElements.forEach((element, index) => {
+                    const speed = 0.1 + (index * 0.05);
+                    element.style.transform = `translate(${scrolled * speed}px, ${scrolled * speed * 0.7}px)`;
+                });
+            });
+            
+            // Magnetic button effect
+            const buttons = document.querySelectorAll('.ux-hero-btn, .ux-cta-btn, .ux-final-btn');
+            buttons.forEach(button => {
+                button.addEventListener('mousemove', (e) => {
+                    const rect = button.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+                    
+                    button.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px) translateY(-5px)`;
+                });
+                
+                button.addEventListener('mouseleave', () => {
+                    button.style.transform = '';
+                });
+            });
+        });
+    </script>
+@endsection
