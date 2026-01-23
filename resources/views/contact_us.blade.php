@@ -33,7 +33,7 @@
                 
                 {{-- Main Heading --}}
                 <div class="space-y-4">
-                    <h1 class="text-5xl sm:text-6xl lg:text-7xl font-black text-slate-900 leading-[1.1] tracking-tight">
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 leading-[1.1] tracking-tight">
                         Let's Bring Your
                         <span class="relative inline-block mt-2">
                             <span class="relative z-10 text-blue-600">Vision to Life</span>
@@ -42,21 +42,21 @@
                             </svg>
                         </span>
                     </h1>
-                    <p class="text-xl text-slate-600 leading-relaxed max-w-xl">
+                    <p class="text-lg text-slate-600 leading-relaxed max-w-xl">
                         Ready to transform your ideas into reality? Our expert team is here to help you build something extraordinary.
                     </p>
                 </div>
                 
                 {{-- CTA Buttons --}}
                 <div class="flex flex-wrap gap-4">
-                    <a href="#contact-form" class="group inline-flex items-center gap-2 px-8 py-4 bg-blue-600 text-white font-bold text-base rounded-xl hover:bg-blue-700 transition-all duration-300 shadow-lg shadow-blue-600/30 hover:shadow-xl hover:shadow-blue-600/40 hover:scale-105">
+                    <a href="#contact-form" class="group inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-bold text-sm rounded-xl hover:bg-blue-700 transition-all duration-300 shadow-lg shadow-blue-600/30 hover:shadow-xl hover:shadow-blue-600/40 hover:scale-105">
                         Get Started
-                        <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
                         </svg>
                     </a>
-                    <a href="tel:08011294860" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-slate-900 font-bold text-base rounded-xl border-2 border-slate-200 hover:border-blue-600 hover:text-blue-600 transition-all duration-300 shadow-sm hover:shadow-md">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <a href="tel:08011294860" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-slate-900 font-bold text-sm rounded-xl border-2 border-slate-200 hover:border-blue-600 hover:text-blue-600 transition-all duration-300 shadow-sm hover:shadow-md">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.23.615a16.036 16.036 0 006.837 6.837l.615-1.23a1 1 0 011.06-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
                         </svg>
                         Call Now
@@ -164,11 +164,11 @@
                         </svg>
                         Contact Information
                     </div>
-                    <h2 class="text-4xl font-black text-slate-900 leading-tight animate-slide-in-left" style="animation-delay: 0.1s;">
+                    <h2 class="text-2xl font-black text-slate-900 leading-tight animate-slide-in-left" style="animation-delay: 0.1s;">
                         Get in Touch<br/>
                         <span class="text-blue-600">We're Here to Help</span>
                     </h2>
-                    <p class="text-slate-600 text-base leading-relaxed animate-slide-in-left" style="animation-delay: 0.2s;">
+                    <p class="text-slate-600 text-sm leading-relaxed animate-slide-in-left" style="animation-delay: 0.2s;">
                         Share your project details and our team will craft the perfect solution for you.
                     </p>
                 </div>
@@ -184,7 +184,7 @@
                                 </svg>
                             </div>
                             <div class="flex-1 min-w-0">
-                                <h3 class="text-lg font-black text-slate-900 mb-1">Phone</h3>
+                                <h3 class="text-base font-black text-slate-900 mb-1">Phone</h3>
                                 <p class="text-slate-500 text-xs mb-2 font-medium">Mon-Fri 8am to 5pm</p>
                                 <a href="tel:08011294860" class="inline-flex items-center gap-2 text-blue-600 text-sm font-bold hover:text-blue-800 transition-colors">
                                     080112 94860
@@ -206,7 +206,7 @@
                                 </svg>
                             </div>
                             <div class="flex-1 min-w-0">
-                                <h3 class="text-lg font-black text-slate-900 mb-1">Email</h3>
+                                <h3 class="text-base font-black text-slate-900 mb-1">Email</h3>
                                 <p class="text-slate-500 text-xs mb-2 font-medium">We're here to help 24/7</p>
                                 <a href="mailto:support@adventurecode.com" class="text-blue-600 text-sm font-bold hover:text-blue-800 transition-colors break-all">
                                     support@adventurecode.com
@@ -242,12 +242,35 @@
             {{-- Contact Form --}}
             <div class="lg:col-span-3 animate-slide-in-right">
                 <div class="bg-slate-50 rounded-2xl border-2 border-slate-200 shadow-xl p-8 md:p-10">
-                    <div class="mb-8 text-center">
-                        <h2 class="text-3xl font-black text-slate-900 mb-2">Send us a Message</h2>
+                    {{-- Success/Error Messages --}}
+                    @if(session('success'))
+                        <div class="mb-6 p-4 bg-green-50 border border-green-200 rounded-xl">
+                            <div class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <p class="text-green-800 font-medium text-sm">{{ session('success') }}</p>
+                            </div>
+                        </div>
+                    @endif
+
+                    @if(session('error'))
+                        <div class="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl">
+                            <div class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                                </svg>
+                                <p class="text-red-800 font-medium text-sm">{{ session('error') }}</p>
+                            </div>
+                        </div>
+                    @endif
+                    
+                    <div class="mb-6 text-center">
+                        <h2 class="text-2xl font-black text-slate-900 mb-2">Send us a Message</h2>
                         <p class="text-slate-600 text-sm">We'll craft the perfect solution for your needs</p>
                     </div>
                     
-                    <form action="#" method="POST" class="space-y-6" id="contactForm">
+                    <form action="{{ route('contact.store') }}" method="POST" class="space-y-6" id="contactForm">
                         @csrf
                         
                         {{-- Name & Email Row --}}
@@ -260,8 +283,12 @@
                                        id="name" 
                                        name="name" 
                                        required
-                                       class="w-full px-4 py-3 text-sm rounded-xl border-2 border-slate-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all bg-white"
+                                       value="{{ old('name') }}"
+                                       class="w-full px-4 py-3 text-sm rounded-xl border-2 @error('name') border-red-500 @else border-slate-200 @enderror focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all bg-white"
                                        placeholder="John Doe">
+                                @error('name')
+                                    <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
+                                @enderror
                             </div>
                             
                             <div class="relative">
@@ -272,8 +299,12 @@
                                        id="email" 
                                        name="email" 
                                        required
-                                       class="w-full px-4 py-3 text-sm rounded-xl border-2 border-slate-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all bg-white"
+                                       value="{{ old('email') }}"
+                                       class="w-full px-4 py-3 text-sm rounded-xl border-2 @error('email') border-red-500 @else border-slate-200 @enderror focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all bg-white"
                                        placeholder="john@example.com">
+                                @error('email')
+                                    <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         
@@ -286,8 +317,12 @@
                                 <input type="tel" 
                                        id="phone" 
                                        name="phone"
-                                       class="w-full px-4 py-3 text-sm rounded-xl border-2 border-slate-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all bg-white"
+                                       value="{{ old('phone') }}"
+                                       class="w-full px-4 py-3 text-sm rounded-xl border-2 @error('phone') border-red-500 @else border-slate-200 @enderror focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all bg-white"
                                        placeholder="+1 (555) 123-4567">
+                                @error('phone')
+                                    <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
+                                @enderror
                             </div>
                             
                             <div class="relative">
@@ -298,8 +333,12 @@
                                        id="subject" 
                                        name="subject" 
                                        required
-                                       class="w-full px-4 py-3 text-sm rounded-xl border-2 border-slate-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all bg-white"
+                                       value="{{ old('subject') }}"
+                                       class="w-full px-4 py-3 text-sm rounded-xl border-2 @error('subject') border-red-500 @else border-slate-200 @enderror focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all bg-white"
                                        placeholder="How can we help?">
+                                @error('subject')
+                                    <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         
@@ -313,12 +352,15 @@
                                       rows="6" 
                                       required
                                       maxlength="500"
-                                      class="w-full px-4 py-3 text-sm rounded-xl border-2 border-slate-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all resize-none bg-white"
+                                      class="w-full px-4 py-3 text-sm rounded-xl border-2 @error('message') border-red-500 @else border-slate-200 @enderror focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all resize-none bg-white"
                                       placeholder="Tell us about your project..."
-                                      oninput="updateCharCount(this)"></textarea>
+                                      oninput="updateCharCount(this)">{{ old('message') }}</textarea>
                             <div class="absolute bottom-3 right-4 px-2 py-1 bg-slate-100 rounded-full text-xs font-bold text-slate-500">
-                                <span id="charCount">0</span>/500
+                                <span id="charCount">{{ strlen(old('message', '')) }}</span>/500
                             </div>
+                            @error('message')
+                                <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
+                            @enderror
                         </div>
                         
                         {{-- Privacy Notice --}}
@@ -332,11 +374,12 @@
                         </div>
                         
                         {{-- Submit Button --}}
+                        {{-- Submit Button --}}
                         <button type="submit" 
                                 id="submitBtn"
-                                class="w-full py-4 px-6 bg-blue-600 text-white font-bold text-base rounded-xl hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-3">
+                                class="w-full py-4 px-6 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold text-sm rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-3 disabled:opacity-75 disabled:cursor-not-allowed">
                             <span id="btnText">Send Message</span>
-                            <svg id="btnArrow" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg id="btnArrow" class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
                             </svg>
                             <svg id="btnLoader" class="w-5 h-5 animate-spin hidden" fill="none" viewBox="0 0 24 24">
@@ -380,8 +423,8 @@
             <div class="inline-block px-4 py-2 bg-blue-100 text-blue-700 text-xs font-bold uppercase tracking-wide rounded-full mb-4">
                 Our Locations
             </div>
-            <h2 class="text-4xl font-black text-slate-900 mb-4">Visit Our Offices</h2>
-            <p class="text-slate-600 text-lg max-w-2xl mx-auto">
+            <h2 class="text-2xl font-black text-slate-900 mb-4">Visit Our Offices</h2>
+            <p class="text-slate-600 text-base max-w-2xl mx-auto">
                 We have offices in two locations to serve you better
             </p>
         </div>
@@ -410,7 +453,7 @@
                             </svg>
                         </div>
                         <div>
-                            <h3 class="text-2xl font-black text-slate-900 mb-2">United States Office</h3>
+                            <h3 class="text-xl font-black text-slate-900 mb-2">United States Office</h3>
                             <p class="text-slate-600 text-sm font-medium leading-relaxed">
                                 486 NJ-10<br/>
                                 Randolph, NJ 07869<br/>
@@ -467,7 +510,7 @@
                             </svg>
                         </div>
                         <div>
-                            <h3 class="text-2xl font-black text-slate-900 mb-2">India Office</h3>
+                            <h3 class="text-xl font-black text-slate-900 mb-2">India Office</h3>
                             <p class="text-slate-600 text-sm font-medium leading-relaxed">
                                 RG Baruah Rd, Sarania Hills<br/>
                                 Guwahati, Assam 781003<br/>
@@ -593,43 +636,119 @@
 <script>
     function updateCharCount(textarea) {
         const count = textarea.value.length;
-        document.getElementById('charCount').textContent = count;
+        const charCountElement = document.getElementById('charCount');
+        if (charCountElement) {
+            charCountElement.textContent = count;
+            
+            // Change color based on character count
+            if (count > 450) {
+                charCountElement.classList.add('text-red-500');
+                charCountElement.classList.remove('text-slate-500', 'text-yellow-500');
+            } else if (count > 400) {
+                charCountElement.classList.add('text-yellow-500');
+                charCountElement.classList.remove('text-slate-500', 'text-red-500');
+            } else {
+                charCountElement.classList.add('text-slate-500');
+                charCountElement.classList.remove('text-yellow-500', 'text-red-500');
+            }
+        }
     }
     
     document.getElementById('contactForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
         const btn = document.getElementById('submitBtn');
         const btnText = document.getElementById('btnText');
         const btnArrow = document.getElementById('btnArrow');
         const btnLoader = document.getElementById('btnLoader');
         
+        // Validate form before showing loading state
+        const form = e.target;
+        if (!form.checkValidity()) {
+            return; // Let browser handle validation
+        }
+        
+        // Show loading state
         btnText.textContent = 'Sending...';
         btnArrow.classList.add('hidden');
         btnLoader.classList.remove('hidden');
         btn.disabled = true;
-        btn.classList.add('opacity-75', 'cursor-not-allowed');
         
+        // Add a timeout to reset button if form submission takes too long
         setTimeout(() => {
-            btnText.textContent = 'Message Sent!';
-            btnLoader.classList.add('hidden');
-            btn.classList.remove('opacity-75', 'cursor-not-allowed');
-            btn.classList.remove('bg-blue-600');
-            btn.classList.add('bg-green-600');
-            
-            btnLoader.outerHTML = '<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>';
-            
-            setTimeout(() => {
-                this.reset();
-                document.getElementById('charCount').textContent = '0';
+            if (btn.disabled) {
                 btnText.textContent = 'Send Message';
+                btnArrow.classList.remove('hidden');
+                btnLoader.classList.add('hidden');
                 btn.disabled = false;
-                btn.classList.remove('bg-green-600');
-                btn.classList.add('bg-blue-600');
-                location.reload();
-            }, 2000);
-        }, 1500);
+            }
+        }, 10000); // Reset after 10 seconds
     });
+
+    // Initialize character count on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        const messageTextarea = document.getElementById('message');
+        if (messageTextarea) {
+            updateCharCount(messageTextarea);
+            
+            // Add real-time validation feedback
+            messageTextarea.addEventListener('input', function() {
+                updateCharCount(this);
+                
+                // Remove error styling when user starts typing
+                if (this.classList.contains('border-red-500')) {
+                    this.classList.remove('border-red-500');
+                    this.classList.add('border-slate-200');
+                }
+            });
+        }
+        
+        // Add real-time validation for all form fields
+        const formFields = document.querySelectorAll('#contactForm input, #contactForm textarea');
+        formFields.forEach(field => {
+            field.addEventListener('input', function() {
+                if (this.classList.contains('border-red-500')) {
+                    this.classList.remove('border-red-500');
+                    this.classList.add('border-slate-200');
+                }
+            });
+            
+            field.addEventListener('focus', function() {
+                this.classList.add('border-blue-500', 'ring-4', 'ring-blue-500/10');
+            });
+            
+            field.addEventListener('blur', function() {
+                this.classList.remove('border-blue-500', 'ring-4', 'ring-blue-500/10');
+                if (!this.classList.contains('border-red-500')) {
+                    this.classList.add('border-slate-200');
+                }
+            });
+        });
+        
+        // Auto-resize textarea
+        const textarea = document.getElementById('message');
+        if (textarea) {
+            textarea.addEventListener('input', function() {
+                this.style.height = 'auto';
+                this.style.height = this.scrollHeight + 'px';
+            });
+        }
+    });
+    
+    // Add form validation enhancement
+    function validateForm() {
+        const form = document.getElementById('contactForm');
+        const inputs = form.querySelectorAll('input[required], textarea[required]');
+        let isValid = true;
+        
+        inputs.forEach(input => {
+            if (!input.value.trim()) {
+                input.classList.add('border-red-500');
+                input.classList.remove('border-slate-200');
+                isValid = false;
+            }
+        });
+        
+        return isValid;
+    }
 </script>
 
 @endsection
