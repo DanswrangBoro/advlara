@@ -35,7 +35,20 @@ class AdminController extends Controller
      */
     public function content(): View
     {
-        return view('admin.content.index');
+        $stats = [
+            'total_pages' => \App\Models\Page::count(),
+            'published_pages' => \App\Models\Page::where('status', 'published')->count(),
+            'draft_pages' => \App\Models\Page::where('status', 'draft')->count(),
+            'blog_posts' => \App\Models\Page::where('type', 'blog')->count(),
+            'service_pages' => \App\Models\Page::where('type', 'service')->count(),
+        ];
+
+        $recent_pages = \App\Models\Page::with('author')
+            ->latest()
+            ->take(5)
+            ->get();
+
+        return view('admin.content.index', compact('stats', 'recent_pages'));
     }
 
     /**

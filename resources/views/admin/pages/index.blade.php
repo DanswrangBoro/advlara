@@ -1,11 +1,11 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Content Management')
+@section('title', 'Page Management')
 
 @section('header')
     <div class="flex flex-col sm:flex-row sm:items-center justify-between">
         <div class="mb-4 sm:mb-0">
-            <h1 class="text-xl sm:text-2xl lg:text-3xl font-bold topbar-title">Content Management</h1>
+            <h1 class="text-xl sm:text-2xl lg:text-3xl font-bold topbar-title">Page Management</h1>
             <div class="mt-1 sm:mt-2 flex items-center space-x-2 sm:space-x-4">
                 <div class="breadcrumb-modern flex items-center space-x-2 text-xs sm:text-sm text-gray-600">
                     <svg class="w-3 h-3 sm:w-4 sm:h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -21,7 +21,7 @@
 @endsection
 
 @section('content')
-<div x-data="contentManager()" x-init="initEditor()">
+<div x-data="pageManager()" x-init="initEditor()">
     <!-- Stats Cards -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6 sm:mb-8">
         <div class="bg-white shadow-sm rounded-2xl border border-gray-200 p-4 sm:p-6">
@@ -36,7 +36,7 @@
                 <div class="ml-3 sm:ml-4">
                     <dl>
                         <dt class="text-xs sm:text-sm font-medium text-gray-500">Total Pages</dt>
-                        <dd class="text-xl sm:text-2xl font-bold text-gray-900">{{ $stats['total_pages'] ?? 0 }}</dd>
+                        <dd class="text-xl sm:text-2xl font-bold text-gray-900">{{ $stats['total'] }}</dd>
                     </dl>
                 </div>
             </div>
@@ -54,7 +54,7 @@
                 <div class="ml-3 sm:ml-4">
                     <dl>
                         <dt class="text-xs sm:text-sm font-medium text-gray-500">Published</dt>
-                        <dd class="text-xl sm:text-2xl font-bold text-gray-900">{{ $stats['published_pages'] ?? 0 }}</dd>
+                        <dd class="text-xl sm:text-2xl font-bold text-gray-900">{{ $stats['published'] }}</dd>
                     </dl>
                 </div>
             </div>
@@ -65,14 +65,14 @@
                 <div class="flex-shrink-0">
                     <div class="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-yellow-100">
                         <svg class="h-5 w-5 sm:h-6 sm:w-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                     </div>
                 </div>
                 <div class="ml-3 sm:ml-4">
                     <dl>
                         <dt class="text-xs sm:text-sm font-medium text-gray-500">Drafts</dt>
-                        <dd class="text-xl sm:text-2xl font-bold text-gray-900">{{ $stats['draft_pages'] ?? 0 }}</dd>
+                        <dd class="text-xl sm:text-2xl font-bold text-gray-900">{{ $stats['draft'] }}</dd>
                     </dl>
                 </div>
             </div>
@@ -83,61 +83,47 @@
                 <div class="flex-shrink-0">
                     <div class="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-purple-100">
                         <svg class="h-5 w-5 sm:h-6 sm:w-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path>
                         </svg>
                     </div>
                 </div>
                 <div class="ml-3 sm:ml-4">
                     <dl>
-                        <dt class="text-xs sm:text-sm font-medium text-gray-500">Blog Posts</dt>
-                        <dd class="text-xl sm:text-2xl font-bold text-gray-900">{{ $stats['blog_posts'] ?? 0 }}</dd>
+                        <dt class="text-xs sm:text-sm font-medium text-gray-500">Archived</dt>
+                        <dd class="text-xl sm:text-2xl font-bold text-gray-900">{{ $stats['archived'] }}</dd>
                     </dl>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Pages Management -->
+    <!-- Main Content -->
     <div class="bg-white shadow-sm rounded-2xl border border-gray-200 overflow-hidden">
         <div class="px-4 sm:px-6 py-3 sm:py-4 border-b border-gray-200">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between">
-                <h3 class="text-base sm:text-lg font-bold text-gray-900 mb-3 sm:mb-0">Website Pages</h3>
+                <h3 class="text-base sm:text-lg font-bold text-gray-900 mb-3 sm:mb-0">All Pages</h3>
                 <div class="flex flex-col sm:flex-row items-stretch sm:items-center space-y-2 sm:space-y-0 sm:space-x-4">
                     <div class="relative">
-                        <input
-                            type="text"
-                            x-model="searchQuery"
-                            placeholder="Search pages..."
-                            class="block w-full sm:w-auto pl-8 sm:pl-10 pr-3 py-2 border border-gray-300 rounded-lg text-xs sm:text-sm placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
-                        >
+                        <input type="text" x-model="searchQuery" @input="filterPages" placeholder="Search pages..." class="block w-full sm:w-auto pl-8 sm:pl-10 pr-3 py-2 border border-gray-300 rounded-lg text-xs sm:text-sm placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500">
                         <div class="absolute inset-y-0 left-0 pl-2 sm:pl-3 flex items-center pointer-events-none">
                             <svg class="h-3 h-3 sm:h-4 sm:w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                             </svg>
                         </div>
                     </div>
-                    <select
-                        x-model="filterType"
-                        class="block w-full sm:w-auto pl-3 pr-8 sm:pr-10 py-2 text-xs sm:text-sm border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 rounded-lg"
-                    >
-                        <option value="">All Types</option>
-                        <option value="page">Static Pages</option>
-                        <option value="blog">Blog Posts</option>
-                        <option value="service">Service Pages</option>
-                    </select>
-                    <select
-                        x-model="filterStatus"
-                        class="block w-full sm:w-auto pl-3 pr-8 sm:pr-10 py-2 text-xs sm:text-sm border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 rounded-lg"
-                    >
+                    <select x-model="statusFilter" @change="filterPages" class="block w-full sm:w-auto pl-3 pr-8 sm:pr-10 py-2 text-xs sm:text-sm border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 rounded-lg">
                         <option value="">All Status</option>
                         <option value="published">Published</option>
                         <option value="draft">Draft</option>
                         <option value="archived">Archived</option>
                     </select>
-                    <button
-                        @click="openAddModal()"
-                        class="inline-flex items-center px-3 sm:px-4 py-2 border border-transparent text-xs sm:text-sm font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 transition-colors"
-                    >
+                    <select x-model="typeFilter" @change="filterPages" class="block w-full sm:w-auto pl-3 pr-8 sm:pr-10 py-2 text-xs sm:text-sm border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 rounded-lg">
+                        <option value="">All Types</option>
+                        <option value="page">Static Page</option>
+                        <option value="blog">Blog Post</option>
+                        <option value="service">Service Page</option>
+                    </select>
+                    <button @click="openAddModal()" class="inline-flex items-center px-3 sm:px-4 py-2 border border-transparent text-xs sm:text-sm font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 transition-colors">
                         <svg class="w-3 h-3 sm:w-4 sm:h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                         </svg>
@@ -149,9 +135,8 @@
 
         <!-- Mobile Card View -->
         <div class="block sm:hidden divide-y divide-gray-200">
-            @forelse($recent_pages as $page)
-                <div class="px-4 py-4 hover:bg-gray-50 transition-colors"
-                     x-show="matchesFilters('{{ $page->title }}', '{{ $page->slug }}', '{{ $page->type }}', '{{ $page->status }}')">
+            @forelse($pages as $page)
+                <div class="px-4 py-4 hover:bg-gray-50 transition-colors">
                     <div class="flex items-start justify-between">
                         <div class="flex-1 min-w-0">
                             <div class="flex items-center space-x-2 mb-2">
@@ -162,7 +147,7 @@
                                 </div>
                                 <div class="flex-1 min-w-0">
                                     <h4 class="text-sm font-semibold text-gray-900 truncate">{{ $page->title }}</h4>
-                                    <p class="text-xs text-gray-500 truncate">/{{ $page->slug }}</p>
+                                    <p class="text-xs text-gray-500 truncate">{{ $page->slug }}</p>
                                 </div>
                             </div>
                             <div class="flex items-center justify-between">
@@ -179,7 +164,8 @@
                                 </div>
                                 <div class="flex space-x-2">
                                     <button @click="openEditModal({{ $page->id }})" class="text-blue-600 hover:text-blue-800 text-xs font-medium">Edit</button>
-                                    <button @click="viewPage('{{ $page->slug }}')" class="text-green-600 hover:text-green-800 text-xs font-medium">View</button>
+                                    <a href="{{ $page->getUrl() }}" target="_blank" class="text-green-600 hover:text-green-800 text-xs font-medium">View</a>
+                                    <button @click="deletePage({{ $page->id }}, '{{ addslashes($page->title) }}')" class="text-red-600 hover:text-red-800 text-xs font-medium">Delete</button>
                                 </div>
                             </div>
                         </div>
@@ -191,77 +177,78 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                     </svg>
                     <h3 class="mt-2 text-sm font-medium text-gray-900">No pages found</h3>
-                    <p class="mt-1 text-sm text-gray-500">Get started by creating your first page.</p>
+                    <p class="mt-1 text-sm text-gray-500">Get started by creating a new page.</p>
                 </div>
             @endforelse
         </div>
 
         <!-- Desktop Table View -->
         <div class="hidden sm:block overflow-x-auto">
-            <table class="min-w-full">
+            <table class="min-w-full divide-y divide-gray-200">
                 <thead class="bg-gray-50">
                     <tr>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Page</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Type</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Author</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Last Updated</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                        <th class="px-4 sm:px-6 py-2 sm:py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Page</th>
+                        <th class="px-4 sm:px-6 py-2 sm:py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Type</th>
+                        <th class="px-4 sm:px-6 py-2 sm:py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                        <th class="px-4 sm:px-6 py-2 sm:py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider hidden md:table-cell">Author</th>
+                        <th class="px-4 sm:px-6 py-2 sm:py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider hidden lg:table-cell">Updated</th>
+                        <th class="px-4 sm:px-6 py-2 sm:py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-                    @forelse($recent_pages as $page)
-                        <tr class="hover:bg-gray-50 transition-colors"
-                            x-show="matchesFilters('{{ $page->title }}', '{{ $page->slug }}', '{{ $page->type }}', '{{ $page->status }}')">
-                            <td class="px-6 py-4 whitespace-nowrap">
+                    @forelse($pages as $page)
+                        <tr class="hover:bg-gray-50">
+                            <td class="px-4 sm:px-6 py-3 sm:py-4 whitespace-nowrap">
                                 <div class="flex items-center">
-                                    <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mr-3">
-                                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                                        </svg>
+                                    <div class="flex-shrink-0 h-8 w-8 sm:h-10 sm:w-10">
+                                        <div class="h-8 w-8 sm:h-10 sm:w-10 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
+                                            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                            </svg>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <div class="text-sm font-semibold text-gray-900">{{ $page->title }}</div>
-                                        <div class="text-xs text-gray-500 font-mono">/{{ $page->slug }}</div>
+                                    <div class="ml-2 sm:ml-4">
+                                        <div class="text-xs sm:text-sm font-medium text-gray-900">{{ $page->title }}</div>
+                                        <div class="text-xs text-gray-500 font-mono">{{ $page->slug }}</div>
                                     </div>
                                 </div>
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <span class="inline-flex px-3 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">
+                            <td class="px-4 sm:px-6 py-3 sm:py-4 whitespace-nowrap">
+                                <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">
                                     {{ ucfirst($page->type) }}
                                 </span>
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <span class="inline-flex px-3 py-1 text-xs font-semibold rounded-full
+                            <td class="px-4 sm:px-6 py-3 sm:py-4 whitespace-nowrap">
+                                <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full 
                                     {{ $page->status === 'published' ? 'bg-green-100 text-green-800' : 
                                        ($page->status === 'draft' ? 'bg-yellow-100 text-yellow-800' : 'bg-gray-100 text-gray-800') }}">
                                     {{ ucfirst($page->status) }}
                                 </span>
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                {{ $page->author?->name ?? 'System' }}
+                            <td class="px-4 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-500 hidden md:table-cell">
+                                {{ $page->author->name ?? 'Unknown' }}
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                            <td class="px-4 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-500 hidden lg:table-cell">
                                 {{ $page->updated_at->diffForHumans() }}
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="flex space-x-3">
-                                    <button @click="openEditModal({{ $page->id }})" class="text-blue-600 hover:text-blue-800 text-sm font-medium transition-colors">Edit</button>
-                                    <button @click="viewPage('{{ $page->slug }}')" class="text-green-600 hover:text-green-800 text-sm font-medium transition-colors">View</button>
-                                    <button @click="duplicatePage({{ $page->id }})" class="text-purple-600 hover:text-purple-800 text-sm font-medium transition-colors">Duplicate</button>
-                                    <button @click="deletePage({{ $page->id }}, '{{ addslashes($page->title) }}')" class="text-red-600 hover:text-red-800 text-sm font-medium transition-colors">Delete</button>
+                            <td class="px-4 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm font-medium">
+                                <div class="flex space-x-1 sm:space-x-2">
+                                    <button @click="openEditModal({{ $page->id }})" class="text-blue-600 hover:text-blue-900 text-xs sm:text-sm transition-colors">Edit</button>
+                                    <a href="{{ $page->getUrl() }}" target="_blank" class="text-green-600 hover:text-green-900 text-xs sm:text-sm transition-colors">View</a>
+                                    <button @click="duplicatePage({{ $page->id }})" class="text-purple-600 hover:text-purple-900 text-xs sm:text-sm transition-colors">Copy</button>
+                                    <button @click="deletePage({{ $page->id }}, '{{ addslashes($page->title) }}')" class="text-red-600 hover:text-red-900 text-xs sm:text-sm transition-colors">Delete</button>
                                 </div>
                             </td>
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="6" class="px-6 py-8 text-center">
+                            <td colspan="6" class="px-4 sm:px-6 py-6 sm:py-8 text-center">
                                 <div class="flex flex-col items-center">
-                                    <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg class="mx-auto h-8 w-8 sm:h-12 sm:w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                                     </svg>
                                     <h3 class="mt-2 text-sm font-medium text-gray-900">No pages found</h3>
-                                    <p class="mt-1 text-sm text-gray-500">Get started by creating your first page.</p>
+                                    <p class="mt-1 text-xs sm:text-sm text-gray-500">Get started by creating a new page.</p>
                                 </div>
                             </td>
                         </tr>
@@ -269,19 +256,25 @@
                 </tbody>
             </table>
         </div>
+
+        @if($pages->hasPages())
+            <div class="px-4 sm:px-6 py-3 sm:py-4 border-t border-gray-200">
+                {{ $pages->links() }}
+            </div>
+        @endif
     </div>
 
     <!-- Add/Edit Page Modal -->
-    <div x-show="showPageModal"
-         x-transition:enter="transition ease-out duration-300"
-         x-transition:enter-start="opacity-0"
-         x-transition:enter-end="opacity-100"
-         x-transition:leave="transition ease-in duration-200"
-         x-transition:leave-start="opacity-100"
+    <div x-show="showPageModal" 
+         x-transition:enter="transition ease-out duration-300" 
+         x-transition:enter-start="opacity-0" 
+         x-transition:enter-end="opacity-100" 
+         x-transition:leave="transition ease-in duration-200" 
+         x-transition:leave-start="opacity-100" 
          x-transition:leave-end="opacity-0"
-         class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50"
+         class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50" 
          @click="showPageModal = false">
-
+        
         <div class="relative top-10 mx-auto p-4 sm:p-5 w-full max-w-2xl lg:max-w-4xl">
             <div @click.stop class="relative bg-white rounded-2xl shadow-xl border border-gray-200 max-h-[90vh] overflow-y-auto">
                 <!-- Modal Header -->
@@ -297,193 +290,131 @@
                 <!-- Modal Body -->
                 <form @submit.prevent="submitForm" class="p-4 sm:p-6 space-y-4 sm:space-y-6">
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
-                        <!-- Basic Information -->
-                        <div class="lg:col-span-2">
-                            <h4 class="text-sm font-semibold text-gray-900 mb-3">Basic Information</h4>
-                        </div>
-
-                        <div class="lg:col-span-2">
-                            <label for="title" class="block text-sm font-medium text-gray-700 mb-1">Page Title *</label>
-                            <input
-                                type="text"
-                                id="title"
-                                name="title"
-                                required
-                                x-model="formData.title"
-                                @input="generateSlug"
-                                class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
-                                placeholder="Enter page title"
-                            >
-                            <div x-show="errors.title" class="mt-1 text-sm text-red-600" x-text="errors.title?.[0]"></div>
-                        </div>
-
-                        <div class="lg:col-span-2">
-                            <label for="slug" class="block text-sm font-medium text-gray-700 mb-1">URL Slug *</label>
-                            <div class="mt-1 flex rounded-lg shadow-sm">
-                                <span class="inline-flex items-center px-3 rounded-l-lg border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
-                                    {{ url('/') }}/
-                                </span>
-                                <input
-                                    type="text"
-                                    id="slug"
-                                    name="slug"
-                                    required
-                                    x-model="formData.slug"
-                                    class="flex-1 block w-full rounded-none rounded-r-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
-                                    placeholder="page-url"
-                                >
-                            </div>
-                            <div x-show="errors.slug" class="mt-1 text-sm text-red-600" x-text="errors.slug?.[0]"></div>
-                        </div>
-
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <!-- Left Column -->
+                        <div class="space-y-4 sm:space-y-6">
                             <div>
-                                <label for="type" class="block text-sm font-medium text-gray-700 mb-1">Page Type *</label>
-                                <select
-                                    id="type"
-                                    name="type"
-                                    x-model="formData.type"
-                                    class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
-                                >
-                                    <option value="page">Static Page</option>
-                                    <option value="blog">Blog Post</option>
-                                    <option value="service">Service Page</option>
-                                </select>
-                                <div x-show="errors.type" class="mt-1 text-sm text-red-600" x-text="errors.type?.[0]"></div>
+                                <label for="title" class="block text-sm font-medium text-gray-700 mb-1">Page Title *</label>
+                                <input type="text" id="title" name="title" required 
+                                       x-model="formData.title"
+                                       @input="generateSlug"
+                                       class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
+                                       placeholder="Enter page title">
+                                <div x-show="errors.title" class="mt-1 text-sm text-red-600" x-text="errors.title?.[0]"></div>
+                            </div>
+                            
+                            <div>
+                                <label for="slug" class="block text-sm font-medium text-gray-700 mb-1">URL Slug *</label>
+                                <div class="mt-1 flex rounded-lg shadow-sm">
+                                    <span class="inline-flex items-center px-3 rounded-l-lg border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">{{ url('/') }}/</span>
+                                    <input type="text" id="slug" name="slug" required 
+                                           x-model="formData.slug"
+                                           class="flex-1 block w-full rounded-none rounded-r-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
+                                           placeholder="page-url">
+                                </div>
+                                <div x-show="errors.slug" class="mt-1 text-sm text-red-600" x-text="errors.slug?.[0]"></div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="type" class="block text-sm font-medium text-gray-700 mb-1">Page Type *</label>
+                                    <select id="type" name="type" x-model="formData.type"
+                                            class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base">
+                                        <option value="page">Static Page</option>
+                                        <option value="blog">Blog Post</option>
+                                        <option value="service">Service Page</option>
+                                    </select>
+                                    <div x-show="errors.type" class="mt-1 text-sm text-red-600" x-text="errors.type?.[0]"></div>
+                                </div>
+                                
+                                <div>
+                                    <label for="status" class="block text-sm font-medium text-gray-700 mb-1">Status *</label>
+                                    <select id="status" name="status" x-model="formData.status"
+                                            class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base">
+                                        <option value="draft">Draft</option>
+                                        <option value="published">Published</option>
+                                        <option value="archived">Archived</option>
+                                    </select>
+                                    <div x-show="errors.status" class="mt-1 text-sm text-red-600" x-text="errors.status?.[0]"></div>
+                                </div>
                             </div>
 
                             <div>
-                                <label for="status" class="block text-sm font-medium text-gray-700 mb-1">Status *</label>
-                                <select
-                                    id="status"
-                                    name="status"
-                                    x-model="formData.status"
-                                    class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
-                                >
-                                    <option value="draft">Draft</option>
-                                    <option value="published">Published</option>
-                                    <option value="archived">Archived</option>
+                                <label for="template" class="block text-sm font-medium text-gray-700 mb-1">Template</label>
+                                <select id="template" name="template" x-model="formData.template"
+                                        class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base">
+                                    <option value="default">Default Template</option>
+                                    <option value="blog">Blog Template</option>
+                                    <option value="service">Service Template</option>
+                                    <option value="landing">Landing Page</option>
                                 </select>
-                                <div x-show="errors.status" class="mt-1 text-sm text-red-600" x-text="errors.status?.[0]"></div>
+                            </div>
+
+                            <div>
+                                <label for="excerpt" class="block text-sm font-medium text-gray-700 mb-1">Excerpt</label>
+                                <textarea id="excerpt" name="excerpt" rows="3" 
+                                          x-model="formData.excerpt"
+                                          class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
+                                          placeholder="Brief description of the page..."></textarea>
+                                <div x-show="errors.excerpt" class="mt-1 text-sm text-red-600" x-text="errors.excerpt?.[0]"></div>
                             </div>
                         </div>
 
-                        <div class="lg:col-span-2">
-                            <label for="template" class="block text-sm font-medium text-gray-700 mb-1">Template</label>
-                            <select
-                                id="template"
-                                name="template"
-                                x-model="formData.template"
-                                class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
-                            >
-                                <option value="default">Default Template</option>
-                                <option value="blog">Blog Template</option>
-                                <option value="service">Service Template</option>
-                                <option value="landing">Landing Page</option>
-                            </select>
-                        </div>
+                        <!-- Right Column -->
+                        <div class="space-y-4 sm:space-y-6">
+                            <div>
+                                <label for="meta_title" class="block text-sm font-medium text-gray-700 mb-1">SEO Title</label>
+                                <input type="text" id="meta_title" name="meta_title" 
+                                       x-model="formData.meta_title"
+                                       class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
+                                       placeholder="SEO optimized title">
+                                <p class="mt-1 text-xs text-gray-500">Leave blank to use page title</p>
+                            </div>
 
-                        <div class="lg:col-span-2">
-                            <label for="excerpt" class="block text-sm font-medium text-gray-700 mb-1">Excerpt</label>
-                            <textarea
-                                id="excerpt"
-                                name="excerpt"
-                                rows="3"
-                                x-model="formData.excerpt"
-                                class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
-                                placeholder="Brief description of the page..."
-                            ></textarea>
-                            <div x-show="errors.excerpt" class="mt-1 text-sm text-red-600" x-text="errors.excerpt?.[0]"></div>
-                        </div>
+                            <div>
+                                <label for="meta_description" class="block text-sm font-medium text-gray-700 mb-1">SEO Description</label>
+                                <textarea id="meta_description" name="meta_description" rows="3" 
+                                          x-model="formData.meta_description"
+                                          class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
+                                          placeholder="SEO meta description..."></textarea>
+                            </div>
 
-                        <!-- Right side (SEO / options) -->
-                        <div class="space-y-4 sm:space-y-6 lg:col-span-2 lg:grid lg:grid-cols-2 lg:gap-6">
-                            <div class="space-y-4 sm:space-y-6">
-                                <div>
-                                    <label for="meta_title" class="block text-sm font-medium text-gray-700 mb-1">SEO Title</label>
-                                    <input
-                                        type="text"
-                                        id="meta_title"
-                                        name="meta_title"
-                                        x-model="formData.meta_title"
-                                        class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
-                                        placeholder="SEO optimized title"
-                                    >
-                                    <p class="mt-1 text-xs text-gray-500">Leave blank to use page title</p>
+                            <div>
+                                <label for="meta_keywords" class="block text-sm font-medium text-gray-700 mb-1">SEO Keywords</label>
+                                <input type="text" id="meta_keywords" name="meta_keywords" 
+                                       x-model="formData.meta_keywords"
+                                       class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
+                                       placeholder="keyword1, keyword2, keyword3">
+                            </div>
+
+                            <div x-show="formData.status === 'published'">
+                                <label for="published_at" class="block text-sm font-medium text-gray-700 mb-1">Publish Date</label>
+                                <input type="datetime-local" id="published_at" name="published_at" 
+                                       x-model="formData.published_at"
+                                       class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base">
+                            </div>
+
+                            <div class="space-y-3">
+                                <div class="flex items-center">
+                                    <input id="is_featured" name="is_featured" type="checkbox" 
+                                           x-model="formData.is_featured"
+                                           class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                                    <label for="is_featured" class="ml-3 text-sm text-gray-700">Featured page</label>
                                 </div>
-
-                                <div>
-                                    <label for="meta_description" class="block text-sm font-medium text-gray-700 mb-1">SEO Description</label>
-                                    <textarea
-                                        id="meta_description"
-                                        name="meta_description"
-                                        rows="3"
-                                        x-model="formData.meta_description"
-                                        class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
-                                        placeholder="SEO meta description..."
-                                    ></textarea>
-                                </div>
-
-                                <div>
-                                    <label for="meta_keywords" class="block text-sm font-medium text-gray-700 mb-1">SEO Keywords</label>
-                                    <input
-                                        type="text"
-                                        id="meta_keywords"
-                                        name="meta_keywords"
-                                        x-model="formData.meta_keywords"
-                                        class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
-                                        placeholder="keyword1, keyword2, keyword3"
-                                    >
+                                <div class="flex items-center">
+                                    <input id="show_in_menu" name="show_in_menu" type="checkbox" 
+                                           x-model="formData.show_in_menu"
+                                           class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                                    <label for="show_in_menu" class="ml-3 text-sm text-gray-700">Show in navigation menu</label>
                                 </div>
                             </div>
 
-                            <div class="space-y-4 sm:space-y-6">
-                                <div>
-                                    <label for="published_at" class="block text-sm font-medium text-gray-700 mb-1">Publish Date</label>
-                                    <input
-                                        type="datetime-local"
-                                        id="published_at"
-                                        name="published_at"
-                                        x-model="formData.published_at"
-                                        class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
-                                    >
-                                </div>
-
-                                <div class="space-y-3">
-                                    <div class="flex items-center">
-                                        <input
-                                            id="is_featured"
-                                            name="is_featured"
-                                            type="checkbox"
-                                            x-model="formData.is_featured"
-                                            class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-                                        >
-                                        <label for="is_featured" class="ml-3 text-sm text-gray-700">Featured page</label>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <input
-                                            id="show_in_menu"
-                                            name="show_in_menu"
-                                            type="checkbox"
-                                            x-model="formData.show_in_menu"
-                                            class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-                                        >
-                                        <label for="show_in_menu" class="ml-3 text-sm text-gray-700">Show in navigation menu</label>
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <label for="sort_order" class="block text-sm font-medium text-gray-700 mb-1">Sort Order</label>
-                                    <input
-                                        type="number"
-                                        id="sort_order"
-                                        name="sort_order"
-                                        x-model="formData.sort_order"
-                                        class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
-                                        placeholder="0"
-                                    >
-                                    <p class="mt-1 text-xs text-gray-500">Lower numbers appear first</p>
-                                </div>
+                            <div>
+                                <label for="sort_order" class="block text-sm font-medium text-gray-700 mb-1">Sort Order</label>
+                                <input type="number" id="sort_order" name="sort_order" 
+                                       x-model="formData.sort_order"
+                                       class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
+                                       placeholder="0">
+                                <p class="mt-1 text-xs text-gray-500">Lower numbers appear first</p>
                             </div>
                         </div>
                     </div>
@@ -491,31 +422,21 @@
                     <!-- Content Editor -->
                     <div class="lg:col-span-2">
                         <label for="content" class="block text-sm font-medium text-gray-700 mb-1">Content</label>
-                        <textarea
-                            id="content"
-                            name="content"
-                            rows="12"
-                            x-model="formData.content"
-                            class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
-                            placeholder="Enter page content..."
-                        ></textarea>
+                        <textarea id="content" name="content" rows="12"
+                                  x-model="formData.content"
+                                  class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
+                                  placeholder="Enter page content..."></textarea>
                         <div x-show="errors.content" class="mt-1 text-sm text-red-600" x-text="errors.content?.[0]"></div>
                     </div>
 
                     <!-- Modal Footer -->
                     <div class="flex flex-col sm:flex-row justify-end space-y-2 sm:space-y-0 sm:space-x-3 pt-4 border-t border-gray-200">
-                        <button
-                            type="button"
-                            @click="closeModal"
-                            class="w-full sm:w-auto px-4 py-2 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-colors"
-                        >
+                        <button type="button" @click="closeModal" 
+                                class="w-full sm:w-auto px-4 py-2 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-colors">
                             Cancel
                         </button>
-                        <button
-                            type="submit"
-                            :disabled="isSubmitting"
-                            class="w-full sm:w-auto px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                        >
+                        <button type="submit" :disabled="isSubmitting"
+                                class="w-full sm:w-auto px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
                             <span x-show="!isSubmitting" x-text="isEditing ? 'Update Page' : 'Create Page'"></span>
                             <span x-show="isSubmitting" class="flex items-center">
                                 <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
@@ -536,15 +457,15 @@
 @push('scripts')
 <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
 <script>
-function contentManager() {
+function pageManager() {
     return {
         showPageModal: false,
         isSubmitting: false,
         isEditing: false,
         editingPageId: null,
         searchQuery: '',
-        filterType: '',
-        filterStatus: '',
+        statusFilter: '',
+        typeFilter: '',
         errors: {},
         formData: {
             title: '',
@@ -563,7 +484,7 @@ function contentManager() {
             show_in_menu: false,
             sort_order: 0
         },
-
+        
         resetForm() {
             this.formData = {
                 title: '',
@@ -586,22 +507,22 @@ function contentManager() {
             this.isEditing = false;
             this.editingPageId = null;
         },
-
+        
         closeModal() {
             this.showPageModal = false;
             this.resetForm();
         },
-
+        
         openAddModal() {
             this.resetForm();
             this.showPageModal = true;
         },
-
+        
         async openEditModal(pageId) {
             this.resetForm();
             this.isEditing = true;
             this.editingPageId = pageId;
-
+            
             try {
                 const response = await fetch(`/admin/pages/${pageId}`, {
                     method: 'GET',
@@ -610,9 +531,9 @@ function contentManager() {
                         'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
                     }
                 });
-
+                
                 const data = await response.json();
-
+                
                 if (data.success) {
                     const page = data.page;
                     this.formData.title = page.title;
@@ -639,7 +560,7 @@ function contentManager() {
                 this.showErrorMessage('Failed to load page data');
             }
         },
-
+        
         generateSlug() {
             if (!this.isEditing && this.formData.title) {
                 this.formData.slug = this.formData.title
@@ -647,7 +568,7 @@ function contentManager() {
                     .replace(/[^a-z0-9\s-]/g, '')
                     .replace(/\s+/g, '-')
                     .replace(/-+/g, '-')
-                    .replace(/^-+|-+$/g, '');
+                    .trim('-');
             }
         },
 
@@ -660,7 +581,7 @@ function contentManager() {
                 ClassicEditor
                     .create(document.querySelector('#content'))
                     .then(editor => {
-                        window.contentEditor = editor;
+                        window.pageEditor = editor;
                         editor.model.document.on('change:data', () => {
                             self.formData.content = editor.getData();
                         });
@@ -676,17 +597,17 @@ function contentManager() {
                 document.addEventListener('DOMContentLoaded', init);
             }
         },
-
+        
         async submitForm() {
             this.isSubmitting = true;
             this.errors = {};
-
-            const url = this.isEditing
-                ? `/admin/pages/${this.editingPageId}`
+            
+            const url = this.isEditing 
+                ? `/admin/pages/${this.editingPageId}` 
                 : '{{ route('admin.pages.store') }}';
-
+            
             const method = this.isEditing ? 'PUT' : 'POST';
-
+            
             try {
                 const response = await fetch(url, {
                     method: method,
@@ -697,9 +618,9 @@ function contentManager() {
                     },
                     body: JSON.stringify(this.formData)
                 });
-
+                
                 const data = await response.json();
-
+                
                 if (data.success) {
                     this.showSuccessMessage(data.message);
                     this.closeModal();
@@ -720,49 +641,37 @@ function contentManager() {
                 this.isSubmitting = false;
             }
         },
-
-        matchesFilters(title, slug, type, status) {
-            const q = this.searchQuery.toLowerCase();
-            if (q && !(
-                title.toLowerCase().includes(q) ||
-                slug.toLowerCase().includes(q)
-            )) {
-                return false;
-            }
-
-            if (this.filterType && this.filterType !== type) {
-                return false;
-            }
-
-            if (this.filterStatus && this.filterStatus !== status) {
-                return false;
-            }
-
-            return true;
+        
+        filterPages() {
+            // This would be implemented with server-side filtering
+            // For now, we'll just reload the page with query parameters
+            const params = new URLSearchParams();
+            if (this.searchQuery) params.set('search', this.searchQuery);
+            if (this.statusFilter) params.set('status', this.statusFilter);
+            if (this.typeFilter) params.set('type', this.typeFilter);
+            
+            const queryString = params.toString();
+            const url = queryString ? `?${queryString}` : window.location.pathname;
+            window.location.href = url;
         },
-
-        viewPage(slug) {
-            const url = `/${slug}`;
-            window.open(url, '_blank');
-        },
-
+        
         showSuccessMessage(message) {
             const notification = document.createElement('div');
             notification.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50';
             notification.textContent = message;
             document.body.appendChild(notification);
-
+            
             setTimeout(() => {
                 notification.remove();
             }, 3000);
         },
-
+        
         showErrorMessage(message) {
             const notification = document.createElement('div');
             notification.className = 'fixed top-4 right-4 bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg z-50';
             notification.textContent = message;
             document.body.appendChild(notification);
-
+            
             setTimeout(() => {
                 notification.remove();
             }, 5000);
@@ -829,7 +738,7 @@ function showSuccessMessage(message) {
     notification.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50';
     notification.textContent = message;
     document.body.appendChild(notification);
-
+    
     setTimeout(() => {
         notification.remove();
     }, 3000);
@@ -840,7 +749,7 @@ function showErrorMessage(message) {
     notification.className = 'fixed top-4 right-4 bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg z-50';
     notification.textContent = message;
     document.body.appendChild(notification);
-
+    
     setTimeout(() => {
         notification.remove();
     }, 5000);
