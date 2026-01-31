@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ContactSubmissionController;
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\PageController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -90,6 +91,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::middleware(['auth', 'admin'])->group(function () {
         Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
         Route::get('/content', [AdminController::class, 'content'])->name('content');
+        Route::get('/blogs', [PageController::class, 'blogs'])->name('blogs.index');
         Route::get('/users', [\App\Http\Controllers\Admin\UserController::class, 'index'])->name('users.index');
         Route::get('/settings', [AdminController::class, 'settings'])->name('settings');
         
@@ -97,6 +99,13 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('users', \App\Http\Controllers\Admin\UserController::class, [
             'except' => ['create', 'edit']
         ]);
+        
+        // Page Management Routes
+        Route::resource('pages', \App\Http\Controllers\Admin\PageController::class, [
+            'except' => ['create', 'edit']
+        ]);
+        Route::post('pages/{page}/duplicate', [\App\Http\Controllers\Admin\PageController::class, 'duplicate'])
+            ->name('pages.duplicate');
         
         // Contact Submissions Management
         Route::resource('contact-submissions', ContactSubmissionController::class, [

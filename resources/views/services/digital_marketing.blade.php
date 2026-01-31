@@ -5,288 +5,368 @@
 @section('keywords', 'digital marketing, SEO, PPC, social media, content marketing, email marketing, analytics')
 
 @section('content')
-{{-- HERO – diagonal overflow --}}
-<section class="relative bg-white pt-24 pb-32 lg:pt-32 lg:pb-44 overflow-hidden">
-    <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-50 via-white to-orange-50 -skew-y-12 origin-top-left"></div>
-    <div class="absolute top-0 left-0 w-96 h-96 bg-blue-400/20 rounded-full filter blur-3xl animate-float"></div>
-    <div class="absolute bottom-20 right-0 w-96 h-96 bg-orange-400/20 rounded-full filter blur-3xl animate-float-delayed"></div>
+{{-- HERO – clean, app-like layout --}}
+<section class="relative overflow-hidden bg-slate-950 text-slate-50">
+    <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,.25),transparent_60%),radial-gradient(circle_at_bottom,_rgba(249,115,22,.2),transparent_55%)]"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-20 lg:pt-28 lg:pb-28">
+        <div class="flex flex-col lg:flex-row gap-12 items-center">
+            <div class="max-w-xl space-y-6">
+                <div class="inline-flex items-center gap-2 rounded-full border border-slate-800 bg-slate-900/70 px-3 py-1 text-xs font-semibold text-slate-200">
+                    <span class="flex h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                    Performance Digital Marketing
+                </div>
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight">
+                    Modern digital marketing
+                    <span class="bg-gradient-to-r from-sky-400 via-emerald-300 to-orange-300 bg-clip-text text-transparent">
+                        built for measurable growth
+                    </span>
+                </h1>
+                <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                    We design and run integrated SEO, paid media, social and lifecycle campaigns with clear targets,
+                    transparent reporting and a focus on pipeline, not vanity metrics.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2">
+                    <a href="#channels" class="inline-flex items-center justify-center gap-2 rounded-lg bg-slate-50 px-5 py-2.5 text-sm font-medium text-slate-900 shadow-sm transition hover:bg-white">
+                        View channel mix
+                        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0-5 5m5-5H6"/></svg>
+                    </a>
+                    <a href="{{ route('contact_us') }}" class="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-700 bg-slate-900/60 px-5 py-2.5 text-sm font-medium text-slate-50 transition hover:border-slate-500">
+                        Get roadmap in 7 days
+                    </a>
+                </div>
 
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-        <div class="fade-up">
-            <div class="inline-flex items-center gap-2 px-3 py-1 bg-white border border-blue-200 rounded-full text-blue-600 text-sm font-semibold mb-6 shadow-sm">
-                <span class="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></span>
-                360° Digital Marketing
+                <div class="grid grid-cols-3 gap-4 pt-6 text-xs text-slate-300">
+                    <div>
+                        <div class="font-semibold text-slate-100">+186%</div>
+                        <div class="mt-1 text-slate-400">Median organic lift</div>
+                    </div>
+                    <div>
+                        <div class="font-semibold text-slate-100">5.2×</div>
+                        <div class="mt-1 text-slate-400">Avg. paid ROAS</div>
+                    </div>
+                    <div>
+                        <div class="font-semibold text-slate-100">90 days</div>
+                        <div class="mt-1 text-slate-400">To full ramp‑up</div>
+                    </div>
+                </div>
             </div>
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-6 leading-tight">
-                Growth Engine<br/>
-                <span class="bg-gradient-to-r from-blue-600 to-orange-500 bg-clip-text text-transparent">For Ambitious Brands</span>
-            </h1>
-            <p class="text-lg md:text-xl text-slate-600 mb-8 max-w-xl">
-                Boost visibility, engagement and revenue with data-driven SEO, PPC, Social, Content, Email & Analytics services.
+
+            {{-- Right: “metrics board” style card --}}
+            <div class="w-full max-w-md lg:max-w-lg">
+                <div class="rounded-3xl border border-slate-800 bg-slate-900/60 p-5 sm:p-6 shadow-[0_18px_60px_rgba(15,23,42,0.7)]">
+                    <div class="flex items-center justify-between gap-4">
+                        <div>
+                            <p class="text-xs uppercase tracking-[0.18em] text-slate-400">Pipeline</p>
+                            <p class="mt-1 text-sm font-medium text-slate-100">Next 90‑day plan</p>
+                        </div>
+                        <span class="inline-flex items-center rounded-full bg-emerald-500/10 px-3 py-1 text-[11px] font-medium text-emerald-300 ring-1 ring-emerald-500/30">
+                            Live in 2 weeks
+                        </span>
+                    </div>
+
+                    <dl class="mt-6 grid grid-cols-3 gap-4 text-xs text-slate-300">
+                        <div class="rounded-2xl bg-slate-900/80 p-3 ring-1 ring-slate-800">
+                            <dt class="text-[11px] text-slate-400">SEO</dt>
+                            <dd class="mt-2 text-sm font-semibold text-slate-50">+124%</dd>
+                            <dd class="mt-1 text-[11px] text-emerald-400">traffic QoQ</dd>
+                        </div>
+                        <div class="rounded-2xl bg-slate-900/80 p-3 ring-1 ring-slate-800">
+                            <dt class="text-[11px] text-slate-400">Paid</dt>
+                            <dd class="mt-2 text-sm font-semibold text-slate-50">4.8×</dd>
+                            <dd class="mt-1 text-[11px] text-orange-300">ROAS</dd>
+                        </div>
+                        <div class="rounded-2xl bg-slate-900/80 p-3 ring-1 ring-slate-800">
+                            <dt class="text-[11px] text-slate-400">Lifecycle</dt>
+                            <dd class="mt-2 text-sm font-semibold text-slate-50">+32%</dd>
+                            <dd class="mt-1 text-[11px] text-sky-300">LTV</dd>
+                        </div>
+                    </dl>
+
+                    <div class="mt-6 flex items-center justify-between gap-3 rounded-2xl border border-dashed border-slate-700/80 bg-slate-900/80 px-4 py-3 text-xs">
+                        <div>
+                            <p class="font-medium text-slate-100">Plug into your stack</p>
+                            <p class="mt-1 text-[11px] text-slate-400">GA4 · Looker · HubSpot · Segment · Meta · Google Ads</p>
+                        </div>
+                        <div class="flex -space-x-2">
+                            <span class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-sky-500/20 text-[11px] font-semibold text-sky-200 ring-1 ring-sky-500/40">GA</span>
+                            <span class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-emerald-500/20 text-[11px] font-semibold text-emerald-200 ring-1 ring-emerald-500/40">FB</span>
+                            <span class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-orange-500/20 text-[11px] font-semibold text-orange-200 ring-1 ring-orange-500/40">ADS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{-- Channel mix – tabbed, Next.js style cards --}}
+<section id="channels" class="border-b border-slate-200 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+        <div class="flex flex-col lg:flex-row gap-10 lg:gap-14">
+            <div class="max-w-md space-y-4">
+                <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">Channel mix</p>
+                <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-slate-900">
+                    One growth team, all your channels.
+                </h2>
+                <p class="text-sm text-slate-600">
+                    Pick the lever you care about right now – acquisition, retention or brand.
+                    We orchestrate SEO, performance media, social and lifecycle so they compound.
+                </p>
+            </div>
+
+            <div class="flex-1">
+                <div class="inline-flex rounded-full border border-slate-200 bg-slate-50 p-1 text-xs font-medium text-slate-600 mb-6 max-w-full overflow-x-auto" data-dm-tabs>
+                    <button class="dm-tab active">SEO</button>
+                    <button class="dm-tab">Paid</button>
+                    <button class="dm-tab">Social</button>
+                    <button class="dm-tab">Content</button>
+                    <button class="dm-tab">Lifecycle</button>
+                </div>
+
+                <div class="space-y-4">
+                    {{-- SEO --}}
+                    <article class="dm-panel rounded-2xl border border-slate-200 bg-white/80 p-6 shadow-sm">
+                        <header class="flex items-center justify-between gap-3">
+                            <div class="flex items-center gap-3">
+                                <span class="flex h-8 w-8 items-center justify-center rounded-full bg-sky-100 text-sky-600 text-xs font-semibold">SEO</span>
+                                <div>
+                                    <h3 class="text-sm font-semibold text-slate-900">Technical & product‑led SEO</h3>
+                                    <p class="text-xs text-slate-500">Architecture, speed, schema, content systems.</p>
+                                </div>
+                            </div>
+                            <span class="rounded-full bg-sky-50 px-2.5 py-1 text-[11px] font-medium text-sky-700">+186% organic / 6 mo</span>
+                        </header>
+                        <div class="mt-4 grid grid-cols-2 gap-4 text-[11px] text-slate-600">
+                            <ul class="space-y-1.5 list-disc list-inside">
+                                <li>Technical audits & migration support</li>
+                                <li>Topic clusters & intent mapping</li>
+                                <li>Search‑led content roadmaps</li>
+                            </ul>
+                            <ul class="space-y-1.5 list-disc list-inside">
+                                <li>On‑page & internal linking systems</li>
+                                <li>Schema & rich results playbooks</li>
+                                <li>Bespoke reporting in GA4 / Looker</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    {{-- Paid --}}
+                    <article class="dm-panel hidden rounded-2xl border border-slate-200 bg-white/80 p-6 shadow-sm">
+                        <header class="flex items-center justify-between gap-3">
+                            <div class="flex items-center gap-3">
+                                <span class="flex h-8 w-8 items-center justify-center rounded-full bg-orange-100 text-orange-600 text-xs font-semibold">Paid</span>
+                                <div>
+                                    <h3 class="text-sm font-semibold text-slate-900">Multi‑channel performance media</h3>
+                                    <p class="text-xs text-slate-500">Google, Meta, LinkedIn, programmatic.</p>
+                                </div>
+                            </div>
+                            <span class="rounded-full bg-orange-50 px-2.5 py-1 text-[11px] font-medium text-orange-700">5.2× blended ROAS</span>
+                        </header>
+                        <div class="mt-4 grid grid-cols-2 gap-4 text-[11px] text-slate-600">
+                            <ul class="space-y-1.5 list-disc list-inside">
+                                <li>Account structure & naming conventions</li>
+                                <li>Creative & messaging sprints</li>
+                                <li>Bid strategies & budget pacing</li>
+                            </ul>
+                            <ul class="space-y-1.5 list-disc list-inside">
+                                <li>Lookalike & intent audience design</li>
+                                <li>Landing tests wired to analytics</li>
+                                <li>Weekly experiment backlog</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    {{-- Social --}}
+                    <article class="dm-panel hidden rounded-2xl border border-slate-200 bg-white/80 p-6 shadow-sm">
+                        <header class="flex items-center justify-between gap-3">
+                            <div class="flex items-center gap-3">
+                                <span class="flex h-8 w-8 items-center justify-center rounded-full bg-slate-900 text-slate-100 text-xs font-semibold">Social</span>
+                                <div>
+                                    <h3 class="text-sm font-semibold text-slate-900">Organic + paid social systems</h3>
+                                    <p class="text-xs text-slate-500">LinkedIn, Instagram, TikTok, X.</p>
+                                </div>
+                            </div>
+                            <span class="rounded-full bg-slate-900 px-2.5 py-1 text-[11px] font-medium text-slate-100">+72% follower QoQ</span>
+                        </header>
+                        <div class="mt-4 grid grid-cols-2 gap-4 text-[11px] text-slate-600">
+                            <ul class="space-y-1.5 list-disc list-inside">
+                                <li>Content pillars & posting cadence</li>
+                                <li>Creator & UGC workflows</li>
+                                <li>Brand safety guardrails</li>
+                            </ul>
+                            <ul class="space-y-1.5 list-disc list-inside">
+                                <li>Signal‑based boosting rules</li>
+                                <li>Lead‑gen & pipeline tie‑ins</li>
+                                <li>Community & DM frameworks</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    {{-- Content --}}
+                    <article class="dm-panel hidden rounded-2xl border border-slate-200 bg-white/80 p-6 shadow-sm">
+                        <header class="flex items-center justify-between gap-3">
+                            <div class="flex items-center gap-3">
+                                <span class="flex h-8 w-8 items-center justify-center rounded-full bg-violet-100 text-violet-700 text-xs font-semibold">Content</span>
+                                <div>
+                                    <h3 class="text-sm font-semibold text-slate-900">Editorial & programmatic content</h3>
+                                    <p class="text-xs text-slate-500">Blogs, resources, landing frameworks.</p>
+                                </div>
+                            </div>
+                            <span class="rounded-full bg-violet-50 px-2.5 py-1 text-[11px] font-medium text-violet-700">SERP + brand lift</span>
+                        </header>
+                        <div class="mt-4 grid grid-cols-2 gap-4 text-[11px] text-slate-600">
+                            <ul class="space-y-1.5 list-disc list-inside">
+                                <li>Editorial calendars & briefs</li>
+                                <li>Design systems for visuals</li>
+                                <li>Review & approval workflows</li>
+                            </ul>
+                            <ul class="space-y-1.5 list-disc list-inside">
+                                <li>Programmatic page generation</li>
+                                <li>Topic → funnel mapping</li>
+                                <li>Content performance dashboards</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    {{-- Lifecycle --}}
+                    <article class="dm-panel hidden rounded-2xl border border-slate-200 bg-white/80 p-6 shadow-sm">
+                        <header class="flex items-center justify-between gap-3">
+                            <div class="flex items-center gap-3">
+                                <span class="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 text-xs font-semibold">Lifecycle</span>
+                                <div>
+                                    <h3 class="text-sm font-semibold text-slate-900">Email, CRM & in‑product</h3>
+                                    <p class="text-xs text-slate-500">Onboarding, nurture, win‑back, expansion.</p>
+                                </div>
+                            </div>
+                            <span class="rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-medium text-emerald-700">+32% LTV</span>
+                        </header>
+                        <div class="mt-4 grid grid-cols-2 gap-4 text-[11px] text-slate-600">
+                            <ul class="space-y-1.5 list-disc list-inside">
+                                <li>Lifecycle architecture & flows</li>
+                                <li>Event & property tracking plans</li>
+                                <li>Templates for each lifecycle stage</li>
+                            </ul>
+                            <ul class="space-y-1.5 list-disc list-inside">
+                                <li>Playbooks for churn & win‑back</li>
+                                <li>Experiments tied to revenue</li>
+                                <li>Reporting per cohort / segment</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{-- Process / timeline --}}
+<section class="bg-slate-50 border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+        <div class="flex flex-col lg:flex-row gap-10 lg:gap-14 items-start">
+            <div class="max-w-md space-y-4">
+                <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">How we work</p>
+                <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-slate-900">
+                    Productized, not rigid.
+                </h2>
+                <p class="text-sm text-slate-600">
+                    Four clear phases, weekly async updates, and shared dashboards – formatted the way modern product teams expect.
+                </p>
+            </div>
+            <ol class="flex-1 space-y-6 text-sm">
+                <li class="flex gap-4">
+                    <div class="mt-1 h-7 w-7 rounded-full bg-slate-900 text-slate-50 text-xs flex items-center justify-center">1</div>
+                    <div>
+                        <h3 class="font-semibold text-slate-900">Discovery & diagnostic</h3>
+                        <p class="mt-1 text-slate-600 text-[13px]">
+                            We audit channels, tracking, messaging and funnel. You get a loom walkthrough and a Notion doc with issues + opportunities.
+                        </p>
+                    </div>
+                </li>
+                <li class="flex gap-4">
+                    <div class="mt-1 h-7 w-7 rounded-full bg-slate-200 text-slate-900 text-xs flex items-center justify-center">2</div>
+                    <div>
+                        <h3 class="font-semibold text-slate-900">Roadmap & targets</h3>
+                        <p class="mt-1 text-slate-600 text-[13px]">
+                            We define a 90‑day experiment backlog, channel split and budget ranges. Everything lives in a shared board you can re‑prioritize with us.
+                        </p>
+                    </div>
+                </li>
+                <li class="flex gap-4">
+                    <div class="mt-1 h-7 w-7 rounded-full bg-slate-200 text-slate-900 text-xs flex items-center justify-center">3</div>
+                    <div>
+                        <h3 class="font-semibold text-slate-900">Build, ship, measure</h3>
+                        <p class="mt-1 text-slate-600 text-[13px]">
+                            We launch in 2‑3 sprints: tracking fixes, landing templates, creatives and flows. You get weekly async recaps, not endless calls.
+                        </p>
+                    </div>
+                </li>
+                <li class="flex gap-4">
+                    <div class="mt-1 h-7 w-7 rounded-full bg-slate-200 text-slate-900 text-xs flex items-center justify-center">4</div>
+                    <div>
+                        <h3 class="font-semibold text-slate-900">Scale or switch focus</h3>
+                        <p class="mt-1 text-slate-600 text-[13px]">
+                            Once a motion works, we scale it and move to the next constraint – new segment, geography or product line.
+                        </p>
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </div>
+</section>
+
+{{-- Simple FAQ --}}
+<section class="bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+        <div class="max-w-2xl mb-8">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">FAQ</p>
+            <h2 class="mt-2 text-2xl sm:text-3xl font-semibold tracking-tight text-slate-900">A few things founders ask us.</h2>
+        </div>
+        <div class="space-y-3 text-sm" id="dm-faq">
+            <details class="group rounded-xl border border-slate-200 bg-slate-50/60 px-4 py-3 open:bg-slate-50">
+                <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-slate-900">
+                    <span>How fast can we start?</span>
+                    <span class="text-xs text-slate-500 group-open:rotate-90 transition-transform">›</span>
+                </summary>
+                <p class="mt-2 text-[13px] text-slate-600">
+                    Typically 7–10 business days from signed scope to first campaigns live, assuming we have access to your tools and analytics.
+                </p>
+            </details>
+            <details class="group rounded-xl border border-slate-200 bg-slate-50/60 px-4 py-3 open:bg-slate-50">
+                <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-slate-900">
+                    <span>Do you work as an extension of our team?</span>
+                    <span class="text-xs text-slate-500 group-open:rotate-90 transition-transform">›</span>
+                </summary>
+                <p class="mt-2 text-[13px] text-slate-600">
+                    Yes. We plug into your Slack, PM tool and analytics stack. You get a dedicated lead plus specialists per channel.
+                </p>
+            </details>
+            <details class="group rounded-xl border border-slate-200 bg-slate-50/60 px-4 py-3 open:bg-slate-50">
+                <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-slate-900">
+                    <span>What does pricing look like?</span>
+                    <span class="text-xs text-slate-500 group-open:rotate-90 transition-transform">›</span>
+                </summary>
+                <p class="mt-2 text-[13px] text-slate-600">
+                    We usually work on a flat monthly retainer scoped around your channels + an optional performance component for paid media.
+                </p>
+            </details>
+        </div>
+    </div>
+</section>
+
+{{-- CTA – compact --}}
+<section class="bg-slate-950 text-slate-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-16 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+        <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Next step</p>
+            <h2 class="mt-2 text-2xl font-semibold tracking-tight">Share your numbers, we’ll share a plan.</h2>
+            <p class="mt-2 text-sm text-slate-300 max-w-lg">
+                Send us access to read‑only analytics and ad accounts. We’ll come back with a 90‑day growth canvas – no obligation.
             </p>
-            <div class="flex flex-col sm:flex-row gap-4">
-                <a href="#services" class="group inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-7 py-3 rounded-xl font-semibold shadow-lg shadow-blue-600/30 transition-all hover:shadow-xl hover:-translate-y-0.5">
-                    Explore Services
-                    <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
-                </a>
-                <a href="{{ route('contact_us') }}" class="inline-flex items-center gap-2 bg-white/70 backdrop-blur border-2 border-slate-300 hover:border-blue-600 text-slate-900 px-7 py-3 rounded-xl font-semibold transition-all hover:bg-white">
-                    Get Free Audit
-                </a>
-            </div>
         </div>
-
-        {{-- right – overlapping cards --}}
-        <div class="relative fade-up-delay-2 h-96 lg:h-auto">
-            <div class="absolute top-0 left-0 w-full max-w-sm bg-white/80 backdrop-blur rounded-2xl border border-white/20 shadow-xl p-6 rotate-3 hover:rotate-0 transition-transform">
-                <div class="flex items-center gap-3 mb-3">
-                    <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center"><svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-1.447-.894L15 4m-6 3l6 3m0 0l6-3m-6 3v10"/></svg></div>
-                    <div class="text-sm font-bold text-slate-900">SEO</div>
-                </div>
-                <div class="text-2xl font-bold text-slate-900">+186 %</div>
-                <div class="text-xs text-slate-500">Organic traffic (6 mo)</div>
-            </div>
-
-            <div class="absolute top-24 right-0 w-full max-w-sm bg-white/80 backdrop-blur rounded-2xl border border-white/20 shadow-xl p-6 -rotate-2 hover:rotate-0 transition-transform">
-                <div class="flex items-center gap-3 mb-3">
-                    <div class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center"><svg class="w-5 h-5 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg></div>
-                    <div class="text-sm font-bold text-slate-900">PPC</div>
-                </div>
-                <div class="text-2xl font-bold text-slate-900">5.2 ×</div>
-                <div class="text-xs text-slate-500">ROAS last quarter</div>
-            </div>
-
-            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-sm bg-white/80 backdrop-blur rounded-2xl border border-white/20 shadow-xl p-6 rotate-1 hover:rotate-0 transition-transform">
-                <div class="flex items-center gap-3 mb-3">
-                    <div class="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center"><svg class="w-5 h-5 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg></div>
-                    <div class="text-sm font-bold text-slate-900">Social</div>
-                </div>
-                <div class="text-2xl font-bold text-slate-900">+72 %</div>
-                <div class="text-xs text-slate-500">Follower growth (3 mo)</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-{{-- STICKY STATS BAR – counters fixed --}}
-<section class="sticky top-0 z-20 bg-white/80 backdrop-blur border-b border-slate-200 py-3">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-around gap-4 text-center">
-        <div>
-            <div class="text-xl md:text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent"
-                 data-target="186" data-suffix="%">0%</div>
-            <div class="text-xs text-slate-500">Traffic Boost</div>
-        </div>
-        <div class="h-8 w-px bg-slate-300 hidden sm:block"></div>
-        <div>
-            <div class="text-xl md:text-2xl font-bold bg-gradient-to-r from-orange-600 to-orange-700 bg-clip-text text-transparent"
-                 data-target="5" data-suffix="x">0x</div>
-            <div class="text-xs text-slate-500">Avg. ROAS</div>
-        </div>
-        <div class="h-8 w-px bg-slate-300 hidden sm:block"></div>
-        <div>
-            <div class="text-xl md:text-2xl font-bold bg-gradient-to-r from-blue-600 to-orange-600 bg-clip-text text-transparent"
-                 data-target="98" data-suffix="%">0%</div>
-            <div class="text-xs text-slate-500">Client Retention</div>
-        </div>
-        <div class="h-8 w-px bg-slate-300 hidden sm:block"></div>
-        <div>
-            <div class="text-xl md:text-2xl font-bold bg-gradient-to-r from-slate-700 to-slate-900 bg-clip-text text-transparent"
-                 data-target="24" data-suffix="/7">0/7</div>
-            <div class="text-xs text-slate-500">Support</div>
-        </div>
-    </div>
-</section>
-
-{{-- SERVICES – your 6 blocks --}}
-<section id="services" class="py-20 lg:py-28 bg-gradient-to-br from-slate-50 to-white">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16 scroll-reveal">
-            <div class="inline-block px-4 py-2 bg-blue-50 border border-blue-200 rounded-full text-blue-600 text-sm font-semibold mb-4">Our Services</div>
-            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Everything You Need to Grow Online</h2>
-            <p class="text-lg text-slate-600">From discovery to conversion — we’ve got you covered.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {{-- SEO --}}
-            <div class="scroll-reveal bg-white rounded-2xl border border-slate-200 p-6 shadow hover:shadow-xl transition-shadow">
-                <div class="flex items-center gap-4 mb-4">
-                    <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center"><svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-1.447-.894L15 4m-6 3l6 3m0 0l6-3m-6 3v10"/></svg></div>
-                    <h3 class="text-xl font-bold text-slate-900">SEO</h3>
-                </div>
-                <h4 class="text-sm font-semibold text-blue-600 mb-2">Search Engine Optimization</h4>
-                <p class="text-slate-600 text-sm">Effective SEO boosts search visibility, attracts targeted visitors, strengthens brand authority, and drives sales and engagement.</p>
-            </div>
-
-            {{-- Content Marketing --}}
-            <div class="scroll-reveal-delay-1 bg-white rounded-2xl border border-slate-200 p-6 shadow hover:shadow-xl transition-shadow">
-                <div class="flex items-center gap-4 mb-4">
-                    <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center"><svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg></div>
-                    <h3 class="text-xl font-bold text-slate-900">Content Marketing</h3>
-                </div>
-                <h4 class="text-sm font-semibold text-orange-600 mb-2">Content Marketing</h4>
-                <p class="text-slate-600 text-sm">Content marketing drives growth by engaging audiences, building authority, and boosting conversions.</p>
-            </div>
-
-            {{-- Social Media Management --}}
-            <div class="scroll-reveal-delay-2 bg-white rounded-2xl border border-slate-200 p-6 shadow hover:shadow-xl transition-shadow">
-                <div class="flex items-center gap-4 mb-4">
-                    <div class="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center"><svg class="w-6 h-6 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg></div>
-                    <h3 class="text-xl font-bold text-slate-900">Social Media Management</h3>
-                </div>
-                <h4 class="text-sm font-semibold text-slate-600 mb-2">Social Media Management</h4>
-                <p class="text-slate-600 text-sm">Managing social media effectively enhances brand visibility, engages customers, boosts community, and promotes organizational growth and loyalty.</p>
-            </div>
-
-            {{-- PPC Advertising --}}
-            <div class="scroll-reveal bg-white rounded-2xl border border-slate-200 p-6 shadow hover:shadow-xl transition-shadow">
-                <div class="flex items-center gap-4 mb-4">
-                    <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center"><svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg></div>
-                    <h3 class="text-xl font-bold text-slate-900">PPC Advertising</h3>
-                </div>
-                <h4 class="text-sm font-semibold text-orange-600 mb-2">Pay-Per-Click (PPC) Advertising</h4>
-                <p class="text-slate-600 text-sm">PPC advertising boosts business growth by driving targeted traffic, enhancing brand visibility, and delivering cost-effective results.</p>
-            </div>
-
-            {{-- Email Marketing --}}
-            <div class="scroll-reveal-delay-1 bg-white rounded-2xl border border-slate-200 p-6 shadow hover:shadow-xl transition-shadow">
-                <div class="flex items-center gap-4 mb-4">
-                    <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center"><svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>
-                    <h3 class="text-xl font-bold text-slate-900">Email Marketing</h3>
-                </div>
-                <h4 class="text-sm font-semibold text-blue-600 mb-2">Email Marketing</h4>
-                <p class="text-slate-600 text-sm">Email marketing fuels growth by boosting engagement, building customer relationships, and driving conversions.</p>
-            </div>
-
-            {{-- Analytics & Reporting --}}
-            <div class="scroll-reveal-delay-2 bg-white rounded-2xl border border-slate-200 p-6 shadow hover:shadow-xl transition-shadow">
-                <div class="flex items-center gap-4 mb-4">
-                    <div class="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center"><svg class="w-6 h-6 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></div>
-                    <h3 class="text-xl font-bold text-slate-900">Analytics & Reporting</h3>
-                </div>
-                <h4 class="text-sm font-semibold text-slate-600 mb-2">Analytics and Reporting</h4>
-                <p class="text-slate-600 text-sm">Analytics and reporting provide insights for data-driven decisions that optimize performance and drive growth.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-{{-- WHY CHOOSE US – your 3 points --}}
-<section class="py-20 lg:py-28 bg-gradient-to-br from-white to-blue-50">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div class="scroll-reveal">
-            <div class="inline-block px-4 py-2 bg-blue-50 border border-blue-200 rounded-full text-blue-600 text-sm font-semibold mb-4">Why Choose Us</div>
-            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Custom, Creative & Data-Driven</h2>
-            <p class="text-slate-600 mb-8">We don’t do cookie-cutter. Every strategy is built for your goals, your market, your growth.</p>
-
-            <div class="space-y-6">
-                <div class="flex items-start gap-4">
-                    <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0"><svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
-                    <div>
-                        <h3 class="font-bold text-slate-900">Custom Solutions</h3>
-                        <p class="text-sm text-slate-600">Tailored strategies that meet your specific business requirements and achieve results.</p>
-                    </div>
-                </div>
-
-                <div class="flex items-start gap-4">
-                    <div class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0"><svg class="w-5 h-5 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
-                    <div>
-                        <h3 class="font-bold text-slate-900">Expert Team</h3>
-                        <p class="text-sm text-slate-600">A skilled team with the knowledge to provide unique solutions to enhance your brand.</p>
-                    </div>
-                </div>
-
-                <div class="flex items-start gap-4">
-                    <div class="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center flex-shrink-0"><svg class="w-5 h-5 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
-                    <div>
-                        <h3 class="font-bold text-slate-900">Comprehensive Approach</h3>
-                        <p class="text-sm text-slate-600">Leveraging creativity, data, and innovation to drive your brand's growth and success.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="scroll-reveal-delay-1">
-            <img src="https://images.unsplash.com/photo-1520333789090-1afc82db536a?auto=format&fit=crop&w=800&q=60" alt="Team brainstorming" class="rounded-2xl shadow-xl">
-        </div>
-    </div>
-</section>
-
-{{-- PROCESS – numbered vertical line --}}
-<section class="py-20 lg:py-28 bg-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16 scroll-reveal">
-            <div class="inline-block px-4 py-2 bg-blue-50 border border-blue-200 rounded-full text-blue-600 text-sm font-semibold mb-4">Our Process</div>
-            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">From Audit to Acceleration</h2>
-            <p class="text-lg text-slate-600">Transparent, repeatable and built for speed.</p>
-        </div>
-
-        <div class="relative">
-            <div class="absolute left-8 top-0 h-full w-0.5 bg-gradient-to-b from-blue-300 to-orange-300"></div>
-            <div class="space-y-12">
-                <div class="relative scroll-reveal">
-                    <div class="flex items-start gap-6">
-                        <div class="shrink-0 w-16 h-16 bg-blue-100 border-4 border-white rounded-full flex items-center justify-center font-bold text-blue-700 shadow-md">1</div>
-                        <div>
-                            <h3 class="text-xl font-bold text-slate-900 mb-2">Deep-Dive Audit</h3>
-                            <p class="text-slate-600">We dissect your analytics, competitors and tech stack to uncover quick wins and 90-day roadmaps.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="relative scroll-reveal-delay-1">
-                    <div class="flex items-start gap-6">
-                        <div class="shrink-0 w-16 h-16 bg-orange-100 border-4 border-white rounded-full flex items-center justify-center font-bold text-orange-700 shadow-md">2</div>
-                        <div>
-                            <h3 class="text-xl font-bold text-slate-900 mb-2">Strategy & Forecast</h3>
-                            <p class="text-slate-600">Budgets, channels, creatives and KPIs modelled in your own dashboard before we spend $1.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="relative scroll-reveal-delay-2">
-                    <div class="flex items-start gap-6">
-                        <div class="shrink-0 w-16 h-16 bg-blue-100 border-4 border-white rounded-full flex items-center justify-center font-bold text-blue-700 shadow-md">3</div>
-                        <div>
-                            <h3 class="text-xl font-bold text-slate-900 mb-2">Launch & Iterate</h3>
-                            <p class="text-slate-600">Campaigns go live within 7 days. We A/B test audiences, bids and creatives weekly.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="relative scroll-reveal-delay-3">
-                    <div class="flex items-start gap-6">
-                        <div class="shrink-0 w-16 h-16 bg-orange-100 border-4 border-white rounded-full flex items-center justify-center font-bold text-orange-700 shadow-md">4</div>
-                        <div>
-                            <h3 class="text-xl font-bold text-slate-900 mb-2">Scale & Report</h3>
-                            <p class="text-slate-600">Real-time Looker Studio dashboards + monthly CRO sprints to compound growth every quarter.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-{{-- CTA --}}
-<section class="py-20 lg:py-28 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 relative overflow-hidden">
-    <div class="absolute inset-0 opacity-10"><div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div></div>
-    <div class="absolute top-0 left-0 w-96 h-96 bg-white/5 rounded-full filter blur-3xl animate-float"></div>
-    <div class="absolute bottom-0 right-0 w-96 h-96 bg-orange-400/10 rounded-full filter blur-3xl animate-float-delayed"></div>
-
-    <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div class="scroll-reveal">
-            <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur border border-white/20 rounded-full text-white text-sm font-semibold mb-6">
-                <span class="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></span>
-                Ready to Scale?
-            </div>
-            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">Let's Build Your Growth Engine</h2>
-            <p class="text-xl text-blue-100 mb-10 max-w-3xl mx-auto">Book a free 30-minute strategy call and get a bespoke growth forecast.</p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <a href="{{ route('contact_us') }}" class="group inline-flex items-center gap-2 bg-white hover:bg-gray-50 text-blue-600 px-8 py-4 rounded-xl font-semibold shadow-xl transition-all hover:shadow-2xl hover:-translate-y-0.5">
-                    Book Free Strategy Call
-                    <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
-                </a>
-                <a href="tel:+1234567890" class="inline-flex items-center gap-2 bg-blue-700/50 backdrop-blur border-2 border-white/30 hover:border-white/60 text-white px-8 py-4 rounded-xl font-semibold transition-all">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                    +1 (234) 567-890
-                </a>
-            </div>
+        <div class="flex flex-col sm:flex-row gap-3 sm:items-center">
+            <a href="{{ route('contact_us') }}" class="inline-flex items-center justify-center rounded-lg bg-slate-50 px-5 py-2.5 text-sm font-medium text-slate-900 shadow-sm hover:bg-white">
+                Request free growth canvas
+            </a>
         </div>
     </div>
 </section>
@@ -294,41 +374,65 @@
 
 @push('scripts')
 <script>
-/* scroll reveal */
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('is-visible'); });
-}, { threshold: 0.1 });
-document.querySelectorAll('.scroll-reveal, .scroll-reveal-delay-1, .scroll-reveal-delay-2, .scroll-reveal-delay-3, .fade-up, .fade-up-delay-1, .fade-up-delay-2, .fade-up-delay-3').forEach(el => observer.observe(el));
+// Simple "tab" behaviour for channel mix
+document.addEventListener('DOMContentLoaded', () => {
+    const tabsContainer = document.querySelector('[data-dm-tabs]');
+    if (!tabsContainer) return;
 
-/* counters – fixed */
-const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
-            entry.target.classList.add('counted');
-            const target = parseInt(entry.target.dataset.target);
-            const suffix = entry.target.dataset.suffix || '';
-            let current = 0; const inc = target / (2000 / 16);
-            const timer = setInterval(() => {
-                current += inc;
-                if (current >= target) { clearInterval(timer); entry.target.textContent = target + suffix; }
-                else entry.target.textContent = Math.floor(current) + suffix;
-            }, 16);
-        }
+    const tabs = Array.from(tabsContainer.querySelectorAll('.dm-tab'));
+    const panels = Array.from(document.querySelectorAll('.dm-panel'));
+
+    tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            panels.forEach(p => p.classList.add('hidden'));
+            tab.classList.add('active');
+            if (panels[index]) panels[index].classList.remove('hidden');
+        });
     });
-}, { threshold: 0.5 });
-document.querySelectorAll('[data-target]').forEach(el => counterObserver.observe(el));
+
+    // Scroll reveal – subtle
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+
+    document
+        .querySelectorAll('.scroll-reveal, .scroll-reveal-delay-1, .scroll-reveal-delay-2, .scroll-reveal-delay-3')
+        .forEach(el => revealObserver.observe(el));
+});
 </script>
 <style>
-/* floats */
-@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
-@keyframes float-delayed { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-20px) rotate(4deg); } }
-.animate-float { animation: float 6s ease-in-out infinite; }
-.animate-float-delayed { animation: float-delayed 7s ease-in-out infinite; }
-/* reveal */
-.scroll-reveal, .scroll-reveal-delay-1, .scroll-reveal-delay-2, .scroll-reveal-delay-3, .fade-up, .fade-up-delay-1, .fade-up-delay-2, .fade-up-delay-3 { opacity: 0; transform: translateY(30px); transition: opacity .6s ease-out, transform .6s ease-out; }
-.scroll-reveal-delay-1, .fade-up-delay-1 { transition-delay: .1s; }
-.scroll-reveal-delay-2, .fade-up-delay-2 { transition-delay: .2s; }
-.scroll-reveal-delay-3, .fade-up-delay-3 { transition-delay: .3s; }
-.scroll-reveal.is-visible, .scroll-reveal-delay-1.is-visible, .scroll-reveal-delay-2.is-visible, .scroll-reveal-delay-3.is-visible, .fade-up.is-visible, .fade-up-delay-1.is-visible, .fade-up-delay-2.is-visible, .fade-up-delay-3.is-visible { opacity: 1; transform: translateY(0); }
+/* Tabs */
+[data-dm-tabs] .dm-tab {
+    @apply whitespace-nowrap rounded-full px-3 py-1.5 text-xs text-slate-500 transition;
+}
+[data-dm-tabs] .dm-tab.active {
+    @apply bg-white text-slate-900 shadow-sm;
+}
+
+/* Reveal */
+.scroll-reveal,
+.scroll-reveal-delay-1,
+.scroll-reveal-delay-2,
+.scroll-reveal-delay-3 {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity .4s ease-out, transform .4s ease-out;
+}
+.scroll-reveal-delay-1 { transition-delay: .08s; }
+.scroll-reveal-delay-2 { transition-delay: .16s; }
+.scroll-reveal-delay-3 { transition-delay: .24s; }
+.scroll-reveal.is-visible,
+.scroll-reveal-delay-1.is-visible,
+.scroll-reveal-delay-2.is-visible,
+.scroll-reveal-delay-3.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 </style>
 @endpush
