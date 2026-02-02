@@ -12,7 +12,7 @@ RUN npm run build
 # ================================
 # Stage 2: PHP + Laravel
 # ================================
-FROM php:8.2-cli
+FROM php:8.2-cli-bookworm
 
 RUN apt-get update && apt-get install -y \
     git \
