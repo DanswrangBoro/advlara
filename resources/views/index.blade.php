@@ -13,7 +13,7 @@
     @include('index.why_us')
     @include('index.clients')
     @include('index.testimonials')
-    @include('index.blog')
+    {{-- @include('index.blog') --}}
     @include('index.faq')
     @include('index.index_cta')
     

@@ -200,7 +200,7 @@
                      x-transition:enter-end="opacity-100 translate-y-0"
                      class="flex flex-wrap gap-2 sm:gap-3 pt-2 sm:pt-3">
                     
-                    <a href="#services" class="group relative overflow-hidden inline-flex items-center px-5 py-2.5 sm:px-6 sm:py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-xs sm:text-sm font-bold rounded-xl sm:rounded-2xl transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/50 hover:scale-105">
+                    <a href="{{ route('home') }}#services-section" class="group relative overflow-hidden inline-flex items-center px-5 py-2.5 sm:px-6 sm:py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-xs sm:text-sm font-bold rounded-xl sm:rounded-2xl transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/50 hover:scale-105">
                         <span class="absolute inset-0 bg-gradient-to-r from-orange-600 to-orange-700 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></span>
                         <span class="relative flex items-center gap-1.5 sm:gap-2">
                             <span>Explore Services</span>
@@ -210,7 +210,7 @@
                         </span>
                     </a>
                     
-                    <a href="#contact" class="group relative overflow-hidden inline-flex items-center px-5 py-2.5 sm:px-6 sm:py-3 bg-white/5 backdrop-blur-md text-white text-xs sm:text-sm font-bold rounded-xl sm:rounded-2xl border-2 border-white/20 hover:bg-white hover:text-slate-900 transition-all duration-500 hover:scale-105 hover:border-white">
+                    <a href="{{ route('contact_us') }}" class="group relative overflow-hidden inline-flex items-center px-5 py-2.5 sm:px-6 sm:py-3 bg-white/5 backdrop-blur-md text-white text-xs sm:text-sm font-bold rounded-xl sm:rounded-2xl border-2 border-white/20 hover:bg-white hover:text-slate-900 transition-all duration-500 hover:scale-105 hover:border-white">
                         <span>Get In Touch</span>
                     </a>
                 </div>

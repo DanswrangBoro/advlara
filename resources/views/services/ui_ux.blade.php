@@ -2359,7 +2359,7 @@
         <p class="cta-description">
             Let's collaborate to create digital experiences that your users will love and your business will thrive on.
         </p>
-        <a href="#" class="cta-button"><span>Get Started Today</span></a>
+        <a href="{{ route('contact_us') }}" class="cta-button"><span>Get Started Today</span></a>
     </div>
 </section>
 

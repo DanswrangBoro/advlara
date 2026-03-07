@@ -437,14 +437,14 @@
                     
                     <!-- CTA Buttons -->
                     <div class="flex flex-wrap gap-3 pt-2 sm:pt-4">
-                        <a href="/services" class="group inline-flex items-center px-5 sm:px-6 py-2.5 sm:py-3 bg-blue-600 text-white font-semibold text-sm rounded-lg hover:bg-orange-500 smooth shadow-xl hover:scale-105">
+                        <a href="#services-section" class="group inline-flex items-center px-5 sm:px-6 py-2.5 sm:py-3 bg-blue-600 text-white font-semibold text-sm rounded-lg hover:bg-orange-500 smooth shadow-xl hover:scale-105">
                             <span>Explore Services</span>
                             <svg class="ml-2 w-4 h-4 group-hover:translate-x-1 smooth" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                             </svg>
                         </a>
                         
-                        <a href="/contact" class="inline-flex items-center px-5 sm:px-6 py-2.5 sm:py-3 bg-white/10 backdrop-blur-md text-white font-semibold text-sm rounded-lg border-2 border-white/30 hover:bg-white hover:text-gray-900 smooth">
+                        <a href="{{route('contact_us')}}" class="inline-flex items-center px-5 sm:px-6 py-2.5 sm:py-3 bg-white/10 backdrop-blur-md text-white font-semibold text-sm rounded-lg border-2 border-white/30 hover:bg-white hover:text-gray-900 smooth">
                             Let's Talk
                         </a>
                     </div>
