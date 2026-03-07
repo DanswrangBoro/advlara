@@ -706,11 +706,11 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
                         </svg>
                     </a>
-                    <a href="tel:+1234567890" class="inline-flex items-center justify-center gap-2 bg-blue-700/50 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold border-2 border-white/20 hover:border-white/40 backdrop-blur-sm transition-all duration-300 min-w-[200px]">
+                    <a href="tel:+15551234567" id="callNowBtn" class="inline-flex items-center justify-center gap-2 bg-blue-700/50 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold border-2 border-white/20 hover:border-white/40 backdrop-blur-sm transition-all duration-300 min-w-[200px]">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
                         </svg>
-                        Call Us Now
+                        <span id="callNowText">Call Us Now</span>
                     </a>
                 </div>
 
@@ -743,6 +743,28 @@
 
 @push('scripts')
 <script>
+    // Country-based phone number detection
+    fetch('https://ipapi.co/json/')
+        .then(response => response.json())
+        .then(data => {
+            const callBtn = document.getElementById('callNowBtn');
+            const callText = document.getElementById('callNowText');
+            
+            if (data.country_code === "IN") {
+                // Indian visitors
+                callBtn.href = "tel:+919876543210";
+                callText.innerText = "Call India Office";
+            } else {
+                // All other countries
+                callBtn.href = "tel:+15551234567";
+                callText.innerText = "Call US Office";
+            }
+        })
+        .catch(error => {
+            console.log('Using default US number');
+            // Default to US number if geolocation fails
+        });
+
     // Scroll reveal animations
     const observerOptions = {
         threshold: 0.1,

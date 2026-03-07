@@ -55,11 +55,11 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
                         </svg>
                     </a>
-                    <a href="tel:+919365163250" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-slate-900 font-bold text-sm rounded-xl border-2 border-slate-200 hover:border-blue-600 hover:text-blue-600 transition-all duration-300 shadow-sm hover:shadow-md">
+                    <a href="tel:+15551234567" id="headerCallBtn" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-slate-900 font-bold text-sm rounded-xl border-2 border-slate-200 hover:border-blue-600 hover:text-blue-600 transition-all duration-300 shadow-sm hover:shadow-md">
                         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.23.615a16.036 16.036 0 006.837 6.837l.615-1.23a1 1 0 011.06-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
                         </svg>
-                        Call Now
+                        <span id="headerCallText">Call Now</span>
                     </a>
                 </div>
                 
@@ -746,6 +746,28 @@
         
         return isValid;
     }
+
+    // Country-based phone number detection
+    fetch('https://ipapi.co/json/')
+        .then(response => response.json())
+        .then(data => {
+            const headerCallBtn = document.getElementById('headerCallBtn');
+            const headerCallText = document.getElementById('headerCallText');
+            
+            if (data.country_code === "IN") {
+                // Indian visitors
+                headerCallBtn.href = "tel:+919876543210";
+                headerCallText.innerText = "Call India Office";
+            } else {
+                // All other countries
+                headerCallBtn.href = "tel:+15551234567";
+                headerCallText.innerText = "Call US Office";
+            }
+        })
+        .catch(error => {
+            console.log('Using default US number');
+            // Default to US number if geolocation fails
+        });
 </script>
 
 @endsection
