@@ -258,7 +258,8 @@
                                 </div>
                                 <div class="flex-1 min-w-0">
                                     <p class="text-[10px] text-gray-500 font-bold uppercase tracking-wide mb-0.5">Phone</p>
-                                    <p class="text-sm font-black text-gray-900">+1 (234) 567-890</p>
+                                    <p class="text-sm font-black text-gray-900">+1 (801) 432-0888</p>
+                                    <p class="text-sm font-black text-gray-900">+91 70999 87123</p>
                                 </div>
                             </a>
                         </div>

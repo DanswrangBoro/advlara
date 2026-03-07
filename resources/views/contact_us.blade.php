@@ -186,8 +186,14 @@
                             <div class="flex-1 min-w-0">
                                 <h3 class="text-base font-black text-slate-900 mb-1">Phone</h3>
                                 <p class="text-slate-500 text-xs mb-2 font-medium">Mon-Fri 8am to 5pm</p>
-                                <a href="tel:08011294860" class="inline-flex items-center gap-2 text-blue-600 text-sm font-bold hover:text-blue-800 transition-colors">
-                                    080112 94860
+                                <a href="tel:+1 (801) 432-0888" class="inline-flex items-center gap-2 text-blue-600 text-sm font-bold hover:text-blue-800 transition-colors">
+                                    +1 (801) 432-0888
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                                    </svg>
+                                </a></br>
+                                <a href="tel:+917099987123" class="inline-flex items-center gap-2 text-blue-600 text-sm font-bold hover:text-blue-800 transition-colors">
+                                    +91 7099987123
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
                                     </svg>
@@ -756,12 +762,12 @@
             
             if (data.country_code === "IN") {
                 // Indian visitors
-                headerCallBtn.href = "tel:+919876543210";
-                headerCallText.innerText = "Call India Office";
+                headerCallBtn.href = "tel:+91 7099987123";
+                headerCallText.innerText = "Call Now";
             } else {
                 // All other countries
-                headerCallBtn.href = "tel:+15551234567";
-                headerCallText.innerText = "Call US Office";
+                headerCallBtn.href = "tel:+1 (801) 432-0888";
+                headerCallText.innerText = "Call Now";
             }
         })
         .catch(error => {
