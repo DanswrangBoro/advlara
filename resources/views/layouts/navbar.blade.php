@@ -655,10 +655,9 @@
         <div class="flex justify-between items-center h-full">
             <div class="hidden md:flex items-center space-x-3">
                 <div class="flex items-center space-x-1.5 topbar-link">
-                    <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.23.615a16.036 16.036 0 006.837 6.837l.615-1.23a1 1 0 011.06-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
-                    </svg>
-                    <span>+1 (555) 123-4567</span>
+                    <span>US: +1 (801) 432-0888</span>
+                    <span>|</span>
+                    <span>IN: +91 70999 87123</span>
                 </div>
                 <div class="topbar-divider"></div>
                 <div class="flex items-center space-x-1.5 topbar-link">

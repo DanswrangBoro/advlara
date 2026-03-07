@@ -752,12 +752,12 @@
             
             if (data.country_code === "IN") {
                 // Indian visitors
-                callBtn.href = "tel:+919876543210";
-                callText.innerText = "Call India Office";
+                callBtn.href = "tel:+917099987123";
+                callText.innerText = "Call Us Now";
             } else {
                 // All other countries
-                callBtn.href = "tel:+15551234567";
-                callText.innerText = "Call US Office";
+                callBtn.href = "tel:+1(801)432-0888";
+                callText.innerText = "Call Us Now";
             }
         })
         .catch(error => {

@@ -122,7 +122,7 @@
     @include('layouts.footer')
 
     <!-- WhatsApp Button (Right Bottom) -->
-    <a href="https://wa.me/1234567890?text=Hello%20AdventureCode!" 
+    <a href="https://wa.me/+917099987123?text=Hello%20AdventureCode!" 
        target="_blank" 
        id="whatsappBtn"
        class="floating-btn whatsapp-btn"
