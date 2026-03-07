@@ -165,7 +165,7 @@
                     <p class="text-blue-100 leading-relaxed mb-4 text-sm">
                         Our web development services create secure, responsive websites tailored to your brand, boosting user engagement and business growth.
                     </p>
-                    <a href="/services/web-development" class="inline-flex items-center text-white font-semibold text-sm hover:text-blue-100 smooth">
+                    <a href="{{ route('web_development') }}" class="inline-flex items-center text-white font-semibold text-sm hover:text-blue-100 smooth">
                         Learn more
                         <svg class="ml-1 w-4 h-4 group-hover:translate-x-1 smooth" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
@@ -184,7 +184,7 @@
                     <p class="text-orange-100 leading-relaxed mb-4 text-sm">
                         To drive quality traffic to conversions, we focus on the right audience and use comprehensive digital marketing strategies.
                     </p>
-                    <a href="/services/digital-marketing" class="inline-flex items-center text-white font-semibold text-sm hover:text-orange-100 smooth">
+                    <a href="{{ route('digital_marketing') }}" class="inline-flex items-center text-white font-semibold text-sm hover:text-orange-100 smooth">
                         Learn more
                         <svg class="ml-1 w-4 h-4 group-hover:translate-x-1 smooth" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
@@ -203,7 +203,7 @@
                     <p class="text-gray-600 leading-relaxed mb-4 text-sm">
                         SEO services increase your website's search engine rankings, organic traffic, and user experience.
                     </p>
-                    <a href="/services/seo" class="inline-flex items-center text-blue-600 font-semibold text-sm hover:text-orange-500 smooth">
+                    <a href="{{ route('seo') }}" class="inline-flex items-center text-blue-600 font-semibold text-sm hover:text-orange-500 smooth">
                         Learn more
                         <svg class="ml-1 w-4 h-4 group-hover:translate-x-1 smooth" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
@@ -222,7 +222,7 @@
                     <p class="text-gray-600 leading-relaxed mb-4 text-sm">
                         Graphic design services enable organizations to develop a strong brand identity and engage audiences.
                     </p>
-                    <a href="/services/graphic-design" class="inline-flex items-center text-blue-600 font-semibold text-sm hover:text-orange-500 smooth">
+                    <a href="{{ route('graphic_design') }}" class="inline-flex items-center text-blue-600 font-semibold text-sm hover:text-orange-500 smooth">
                         Learn more
                         <svg class="ml-1 w-4 h-4 group-hover:translate-x-1 smooth" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
@@ -241,7 +241,7 @@
                     <p class="text-purple-100 leading-relaxed mb-4 text-sm">
                         Our travel solutions simplify every journey, adapting to your unique needs from booking to real-time updates.
                     </p>
-                    <a href="/services/travel" class="inline-flex items-center text-white font-semibold text-sm hover:text-purple-100 smooth">
+                    <a href="{{ route('travel_solution') }}" class="inline-flex items-center text-white font-semibold text-sm hover:text-purple-100 smooth">
                         Learn more
                         <svg class="ml-1 w-4 h-4 group-hover:translate-x-1 smooth" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
@@ -260,7 +260,7 @@
                     <p class="text-green-100 leading-relaxed mb-4 text-sm">
                         App development services boost customer engagement, streamline operations with custom mobile apps.
                     </p>
-                    <a href="/services/app-development" class="inline-flex items-center text-white font-semibold text-sm hover:text-green-100 smooth">
+                    <a href="{{ route('app_development') }}" class="inline-flex items-center text-white font-semibold text-sm hover:text-green-100 smooth">
                         Learn more
                         <svg class="ml-1 w-4 h-4 group-hover:translate-x-1 smooth" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>

@@ -348,12 +348,12 @@
                         </div>
 
                         <!-- CTA Button -->
-                        <a href="{{ route('contact_us') }}" class="mt-6 inline-flex items-center gap-2 text-blue-600 font-semibold group-hover:gap-3 transition-all">
+                        <!-- <a href="{{ route('contact_us') }}" class="mt-6 inline-flex items-center gap-2 text-blue-600 font-semibold group-hover:gap-3 transition-all">
                             Learn More
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
                             </svg>
-                        </a>
+                        </a> -->
                     </div>
                 </div>
 
@@ -426,12 +426,12 @@
                             </div>
                         </div>
 
-                        <a href="{{ route('contact_us') }}" class="mt-6 inline-flex items-center gap-2 text-orange-600 font-semibold group-hover:gap-3 transition-all">
+                        <!-- <a href="{{ route('contact_us') }}" class="mt-6 inline-flex items-center gap-2 text-orange-600 font-semibold group-hover:gap-3 transition-all">
                             Learn More
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
                             </svg>
-                        </a>
+                        </a> -->
                     </div>
                 </div>
 
@@ -504,12 +504,12 @@
                             </div>
                         </div>
 
-                        <a href="{{ route('contact_us') }}" class="mt-6 inline-flex items-center gap-2 text-blue-600 font-semibold group-hover:gap-3 transition-all">
+                        <!-- <a href="{{ route('contact_us') }}" class="mt-6 inline-flex items-center gap-2 text-blue-600 font-semibold group-hover:gap-3 transition-all">
                             Learn More
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
                             </svg>
-                        </a>
+                        </a> -->
                     </div>
                 </div>
             </div>

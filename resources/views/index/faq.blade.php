@@ -551,7 +551,7 @@
 
         <!-- Contact CTA -->
         <div class="faq-cta">
-            <a href="/contact" class="faq-cta-button">
+            <a href="{{route('contact_us')}}" class="faq-cta-button">
                 Get In Touch
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>

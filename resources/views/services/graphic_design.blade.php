@@ -990,7 +990,7 @@
                 <div class="gd-hero-badge">Visual Storytelling Through Design</div>
                 <h1>Graphic Design <span>That Speaks Volumes</span></h1>
                 <p>Transforming ideas into compelling visual narratives that captivate audiences and elevate brands beyond expectations.</p>
-                <a href="#contact" class="gd-hero-btn">
+                <a href="#cta" class="gd-hero-btn">
                     Start Your Visual Journey
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -1147,7 +1147,7 @@
                     <div class="gd-cta-content">
                         <h2 class="gd-cta-title">Let's Create Something Amazing</h2>
                         <p class="gd-cta-text">Ready to transform your brand with exceptional design? Our team is here to bring your vision to life.</p>
-                        <a href="#contact" class="gd-cta-btn">Get Started Today</a>
+                        <a href="{{ route('contact_us') }}" class="gd-cta-btn">Get Started Today</a>
                     </div>
                     <div class="gd-cta-visual">
                         <div class="gd-cta-shape"></div>
@@ -1219,12 +1219,12 @@
                 </div>
                 
                 <!-- Final CTA -->
-                <div class="gd-final-cta">
+                <div class="gd-final-cta" id="cta">
                     <div class="gd-final-pattern"></div>
                     <div class="gd-final-cta-content">
                         <h2>Elevate Your Brand With Creative Designs</h2>
                         <p>Boost your brand with designs that leave a lasting impression and drive real results for your business.</p>
-                        <a href="#contact" class="gd-final-btn">Start Your Project</a>
+                        <a href="{{ route('contact_us') }}" class="gd-final-btn">Start Your Project</a>
                     </div>
                 </div>
             </div>

@@ -403,29 +403,6 @@
         }
     }
 
-    /* GMB Badge */
-    .gmb-badge {
-        position: absolute;
-        top: 0.75rem;
-        right: 0.75rem;
-        background: linear-gradient(135deg, #ffffff, #f3f4f6);
-        padding: 0.25rem 0.5rem;
-        border-radius: 0.5rem;
-        font-size: 0.5rem;
-        font-weight: 800;
-        color: #1f2937;
-        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
-        z-index: 3;
-    }
-
-    @media (min-width: 768px) {
-        .gmb-badge {
-            top: 1rem;
-            right: 1rem;
-            font-size: 0.5625rem;
-        }
-    }
-
     /* Carousel Controls */
     .carousel-controls {
         display: flex;
@@ -614,7 +591,7 @@
             </h2>
             
             <p>
-                Discover authentic reviews from our satisfied clients on Google My Business
+                Real feedback from teams we’ve helped ship, scale, and succeed
             </p>
         </div>
 
@@ -658,14 +635,14 @@
                 review: 'Exceptional service and outstanding results. Adventure Code transformed our digital presence completely. Highly professional team!'
             },
             {
-                initials: 'SS',
-                name: 'Sarah Smith',
-                role: 'Marketing Director',
+                initials: 'PS',
+                name: 'Priya Sharma',
+                role: 'Marketing Lead',
                 review: 'Professional, responsive, and delivered beyond our expectations. The team truly understands client needs. Highly recommend!'
             },
             {
-                initials: 'MJ',
-                name: 'Mike Johnson',
+                initials: 'AP',
+                name: 'Arjun Patel',
                 role: 'Product Manager',
                 review: 'The team at Adventure Code is incredible. They understood our needs perfectly and delivered exactly what we wanted!'
             },
@@ -676,8 +653,8 @@
                 review: 'Outstanding technical expertise combined with excellent customer service. They helped us launch ahead of schedule!'
             },
             {
-                initials: 'DB',
-                name: 'David Brown',
+                initials: 'RI',
+                name: 'Rahul Iyer',
                 role: 'Operations Head',
                 review: 'Impressed by their attention to detail and commitment to quality. Every interaction was professional and productive!'
             }
@@ -707,8 +684,6 @@
                 const card = document.createElement('div');
                 card.className = 'testimonial-card-3d';
                 card.innerHTML = `
-                    <div class="gmb-badge">Google Review</div>
-                    
                     <div class="quote-icon">
                         <svg class="w-3 h-3 md:w-4 md:h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>

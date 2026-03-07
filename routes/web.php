@@ -71,6 +71,15 @@ Route::get('/performance-marketing', function () {
     return view('services/performance_marketing');
 })->name('performance_marketing');
 
+// Legal Pages
+Route::get('/privacy', function () {
+    return view('privacy');
+})->name('privacy');
+
+Route::get('/terms', function () {
+    return view('terms');
+})->name('terms');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

@@ -299,6 +299,16 @@
             word-break: break-word;
         }
 
+        .client-logo img {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
+            position: relative;
+            z-index: 2;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
         /* Scroll Controls */
         .scroll-controls {
             display: flex;
@@ -383,34 +393,25 @@
                 <div class="clients-scroll-container" id="clients-scroll">
                     <!-- Client Logos -->
                     <div class="client-logo">
-                        <span>Client 1</span>
+                        <img src="{{ asset('images/client_logos/1.png') }}" alt="Client logo 1" loading="lazy" decoding="async">
                     </div>
                     <div class="client-logo">
-                        <span>Client 2</span>
+                        <img src="{{ asset('images/client_logos/2.png') }}" alt="Client logo 2" loading="lazy" decoding="async">
                     </div>
                     <div class="client-logo">
-                        <span>Client 3</span>
+                        <img src="{{ asset('images/client_logos/3.png') }}" alt="Client logo 3" loading="lazy" decoding="async">
                     </div>
                     <div class="client-logo">
-                        <span>Client 4</span>
+                        <img src="{{ asset('images/client_logos/4.png') }}" alt="Client logo 4" loading="lazy" decoding="async">
                     </div>
                     <div class="client-logo">
-                        <span>Client 5</span>
+                        <img src="{{ asset('images/client_logos/5.png') }}" alt="Client logo 5" loading="lazy" decoding="async">
                     </div>
                     <div class="client-logo">
-                        <span>Client 6</span>
+                        <img src="{{ asset('images/client_logos/6.png') }}" alt="Client logo 6" loading="lazy" decoding="async">
                     </div>
                     <div class="client-logo">
-                        <span>Client 7</span>
-                    </div>
-                    <div class="client-logo">
-                        <span>Client 8</span>
-                    </div>
-                    <div class="client-logo">
-                        <span>Client 9</span>
-                    </div>
-                    <div class="client-logo">
-                        <span>Client 10</span>
+                        <img src="{{ asset('images/client_logos/7.png') }}" alt="Client logo 7" loading="lazy" decoding="async">
                     </div>
                     <!-- Add more as needed (can go to 100+) -->
                 </div>

@@ -8,6 +8,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Flip.min.js"></script>
 
 <style>
@@ -1111,7 +1112,7 @@
                 </div>
                 
                 <div class="hero-buttons" data-hero-elem>
-                    <a href="#contact" class="btn-primary">
+                    <a href="{{ route('contact_us') }}" class="btn-primary">
                         Get Started Today
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -1359,13 +1360,13 @@
                 <h2>Boost Your Business with Performance Marketing</h2>
                 <p>Get started optimizing your campaigns today and achieve the results you want with our data-driven marketing solutions.</p>
                 <div class="cta-buttons">
-                    <a href="#" class="btn-white">
+                    <a href="{{ route('contact_us') }}" class="btn-white">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
                         </svg>
                         Start Your Campaign
                     </a>
-                    <a href="#" class="btn-outline-white">Schedule a Call</a>
+                    <a href="{{ route('contact_us') }}" class="btn-outline-white">Schedule a Call</a>
                 </div>
             </div>
             
@@ -1639,7 +1640,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     duration: 1.5,
                     scrollTo: { 
                         y: target, 
-                        offsetY: 100 
+                        offsetY: 120 
                     },
                     ease: "power3.inOut"
                 });

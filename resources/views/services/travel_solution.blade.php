@@ -79,12 +79,6 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
                             </svg>
                         </a>
-                        <a href="#demo" class="inline-flex items-center justify-center gap-2 bg-transparent hover:bg-white/10 text-white px-8 py-4 rounded-xl font-semibold border-2 border-white/30 hover:border-white/60 transition-all duration-300 backdrop-blur-sm">
-                            Watch Demo
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/>
-                            </svg>
-                        </a>
                     </div>
                 </div>
 
@@ -851,12 +845,12 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                     </svg>
                 </a>
-                <a href="#demo" class="inline-flex items-center justify-center gap-2 bg-transparent hover:bg-white/10 text-white px-10 py-5 rounded-xl font-bold text-lg border-2 border-white/50 hover:border-white transition-all duration-300 backdrop-blur-sm">
+                <!-- <a href="#demo" class="inline-flex items-center justify-center gap-2 bg-transparent hover:bg-white/10 text-white px-10 py-5 rounded-xl font-bold text-lg border-2 border-white/50 hover:border-white transition-all duration-300 backdrop-blur-sm">
                     Schedule Demo
                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/>
                     </svg>
-                </a>
+                </a> -->
             </div>
 
             <div class="flex flex-col sm:flex-row items-center justify-center gap-6 text-white/90">
